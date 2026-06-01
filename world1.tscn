@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cs4ol6ndng3kt"]
 
 [ext_resource type="Texture2D" uid="uid://bt8uone2gkgtk" path="res://Art/Route2/house/1_1.png" id="1_53ewl"]
+[ext_resource type="Texture2D" uid="uid://cly6m4q748kfw" path="res://Art/Route2/telephone_pole/3.png" id="4_cxftf"]
+[ext_resource type="Texture2D" uid="uid://bl0nqdecyun61" path="res://Art/Route2/telephone_pole/2.png" id="5_by2nx"]
 [ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_k08es"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
@@ -29,12 +31,24 @@ dof_blur_amount = 0.09
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
-size = Vector3(7.554123, 5.767639, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_cxftf"]
+size = Vector3(6.7314453, 5.983917, 4.3864746)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_by2nx"]
+load_path = "res://.godot/imported/2_6.png-925b922d7e6d93abde24ee84a19f1305.s3tc.ctex"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53ewl"]
+size = Vector3(8.752869, 5.465454, 4.6418457)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
 height = 10.2404785
 radius = 0.29638672
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dtx0"]
+material = SubResource("StandardMaterial3D_1bvp3")
 
 [node name="World1" type="Node3D" unique_id=1718166395]
 
@@ -43,19 +57,20 @@ environment = SubResource("Environment_tlwt5")
 camera_attributes = SubResource("CameraAttributesPractical_pkg7o")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1089699473]
-transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.71790874, 0.6804683, 0.8865833, -0.4005965, 0.23128448, -26.487026, 17.557579, 18.056719)
-light_color = Color(0.79607844, 1, 1, 1)
+transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.71790874, 0.6804683, 0.8865833, -0.4005965, 0.23128448, -11.274174, 44.135826, 13.660303)
+light_color = Color(0.82625204, 0.9999998, 0.9388819, 1)
+light_energy = 2.231
 shadow_enabled = true
 
 [node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
-transform = Transform3D(100.09448, 0, 0, 0, 0.047322877, 0, 0, 0, 77.39491, 0, 0, 0)
+transform = Transform3D(89.279106, 0, 0, 0, 0.04732452, 0, 0, 0, 59.782726, 0, 0, 0)
 use_collision = true
 collision_mask = 2
 mesh = SubResource("BoxMesh_fj7yv")
 material = SubResource("StandardMaterial3D_036b0")
 
 [node name="House1" type="StaticBody3D" parent="." unique_id=172113325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5467453)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.384611, 0, 4.9904747)
 
 [node name="Sprite3D" type="Sprite3D" parent="House1" unique_id=925833836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
@@ -64,13 +79,27 @@ alpha_cut = 1
 texture = ExtResource("1_53ewl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House1" unique_id=1853201238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14937592, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2748642, 2.9390411, -0.3031006)
+shape = SubResource("BoxShape3D_cxftf")
+
+[node name="House2" type="StaticBody3D" parent="." unique_id=1240164510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.134195, 0, -0.18270302)
+
+[node name="Sprite3D" type="Sprite3D" parent="House2" unique_id=1104085492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_by2nx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House2" unique_id=1837424198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14993858, 2.718338, 0.012573242)
+shape = SubResource("BoxShape3D_53ewl")
 
 [node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8619156, 9.859056, 8.055897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.125785, 9.859056, 12.003696)
 
 [node name="Sprite3D" type="Sprite3D" parent="Pole" unique_id=778523793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012836456, 0, 0)
 billboard = 2
 shaded = true
 alpha_cut = 1
@@ -79,3 +108,67 @@ texture = ExtResource("6_k08es")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pole" unique_id=1805237533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
 shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="Pole2" type="StaticBody3D" parent="." unique_id=1828262570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8656478, 9.760993, 1.0800753)
+
+[node name="Sprite3D" type="Sprite3D" parent="Pole2" unique_id=717090201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012836456, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("4_cxftf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pole2" unique_id=1313527445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="Pole3" type="StaticBody3D" parent="." unique_id=777708504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.405651, 9.760993, -10.353323)
+
+[node name="Sprite3D" type="Sprite3D" parent="Pole3" unique_id=605758689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012836456, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("5_by2nx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pole3" unique_id=1118242599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="wall2" type="CSGMesh3D" parent="." unique_id=192776812]
+transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, -3.8822253, 1.0504556, 3.5779953)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall" type="CSGMesh3D" parent="." unique_id=1751818640]
+transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, 7.1296253, 1.0504556, 3.5779953)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall3" type="CSGMesh3D" parent="." unique_id=2098791869]
+transform = Transform3D(-12.404048, 0, 3.0343987e-08, 0, 2.2183166, 0, -1.0843963e-06, 0, -0.34709477, 13.182354, 1.0504556, 15.858536)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall4" type="CSGMesh3D" parent="." unique_id=1397633349]
+transform = Transform3D(24.019964, 0, -3.8692056e-07, 0, 2.1838994, 0, 2.1586518e-06, 0, 0.1204748, -15.875521, 1.0591934, 15.915111)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall5" type="CSGMesh3D" parent="." unique_id=990940063]
+transform = Transform3D(-24.425549, 0, 4.6394216e-08, 0, 2.2183166, 0, -2.1353492e-06, 0, -0.530688, 19.336296, 1.0504556, -8.505932)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall6" type="CSGMesh3D" parent="." unique_id=1586699199]
+transform = Transform3D(24.020094, 0, -1.0274592e-06, 0, 2.1838994, 0, 2.1586634e-06, 0, 0.31991825, -15.796254, 1.0591934, -8.72826)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")

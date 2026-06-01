@@ -8,7 +8,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_1bvp3"]
+[sub_resource type="BoxMesh" id="BoxMesh_7dtx0"]
 material = SubResource("StandardMaterial3D_1bvp3")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1bvp3"]
@@ -56,26 +56,17 @@ size = Vector2(0.1, 0.1)
 
 [node name="World1" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
-[node name="wall2" type="CSGMesh3D" parent="World1" unique_id=511723216]
-transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 3.461827, 0, 24.808096, 0, -1.5171993e-08, -7.319791, 1.4068227, -9.247694)
+[node name="CollisionShape3D" parent="World1/House1" parent_id_path=PackedInt32Array(1718166395, 172113325) index="1" unique_id=1853201238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41141987, 2.8820496, 0)
+
+[node name="wall" parent="World1" index="9" unique_id=1751818640]
+transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, -4.813319)
+
+[node name="wall7" type="CSGMesh3D" parent="World1" unique_id=903627914]
+transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, 12.045785)
 use_collision = true
 collision_mask = 2
-mesh = SubResource("BoxMesh_1bvp3")
-
-[node name="wall" type="CSGMesh3D" parent="World1" unique_id=421358030]
-transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 3.461827, 0, 24.808096, 0, -1.5171993e-08, 9.359166, 1.4068227, -9.247694)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_1bvp3")
-
-[node name="House1" parent="World1" index="5" unique_id=172113325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.579512, 0, -3.2925844)
-
-[node name="Sprite3D" parent="World1/House1" index="0" unique_id=925833836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46274757, 5.065141, -0.005135536)
-
-[node name="Pole" parent="World1" index="6" unique_id=780100270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.263597, 9.859056, -1.6595869)
+mesh = SubResource("BoxMesh_7dtx0")
 
 [node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 7.0390444)
