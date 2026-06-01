@@ -36,7 +36,7 @@ size = Vector3(7.554123, 5.767639, 1)
 height = 10.2404785
 radius = 0.29638672
 
-[node name="World" type="Node3D" unique_id=1718166395]
+[node name="World1" type="Node3D" unique_id=1718166395]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575047551]
 environment = SubResource("Environment_tlwt5")
