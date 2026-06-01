@@ -1,15 +1,69 @@
 [gd_scene format=3 uid="uid://bb4r8yao2d6v8"]
 
-[ext_resource type="PackedScene" uid="uid://ccaig4lg1bxg2" path="res://world.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cs4ol6ndng3kt" path="res://world1.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://PlayerSwitch.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="2_h2yge"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1bvp3"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+offsets = PackedFloat32Array(0, 0.33221477, 0.7080537, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 0.8392157, 1, 1, 1, 0.8392157, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_036b0"]
+gradient = SubResource("Gradient_lquwl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7mycd"]
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.05, 0)
+color_ramp = SubResource("GradientTexture1D_036b0")
+turbulence_enabled = true
+turbulence_noise_strength = 1.86
+
+[sub_resource type="Gradient" id="Gradient_036b0"]
+colors = PackedColorArray(1, 1, 1, 0.5647059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_272bh"]
+gradient = SubResource("Gradient_036b0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.54509807, 1, 1, 1)
+albedo_texture = SubResource("GradientTexture2D_272bh")
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_5vw27"]
+material = SubResource("StandardMaterial3D_aqk2v")
+size = Vector2(0.1, 0.1)
 
 [node name="main" type="Node" unique_id=1905392597]
 
-[node name="World" parent="." unique_id=1718166395 instance=ExtResource("1_ig7tw")]
+[node name="World" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
-[node name="DirectionalLight3D" parent="World" index="1" unique_id=1089699473]
-light_color = Color(0.84184813, 0.986013, 0.99999994, 1)
-light_energy = 1.31
+[node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 7.0390444)
+collision_layer = 2
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1106145371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05325213, 1.4105108, 3.2758818)
+attributes = SubResource("CameraAttributesPractical_1bvp3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/Camera3D" unique_id=1762799779]
+transform = Transform3D(1.1355628, 0, 0, 0, 1, 0, 0, 0, 1.2853458, -0.05325213, 2.0942068, -4.8785906)
+amount = 12
+lifetime = 4.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_7mycd")
+draw_pass_1 = SubResource("QuadMesh_5vw27")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1860232106]
 
@@ -22,6 +76,6 @@ focus_mode = 0
 text = "2D⇔3D"
 script = ExtResource("2_0xm2m")
 
-[connection signal="pressed" from="CanvasLayer/Player切り替え" to="World/Player" method="_on_player切り替え_pressed"]
+[connection signal="pressed" from="CanvasLayer/Player切り替え" to="Player" method="_on_player切り替え_pressed"]
 
 [editable path="World"]

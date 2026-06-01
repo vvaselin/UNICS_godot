@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cs4ol6ndng3kt"]
+
+[ext_resource type="Texture2D" uid="uid://bt8uone2gkgtk" path="res://Art/Route2/house/1_1.png" id="1_53ewl"]
+[ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_k08es"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pkg7o"]
+dof_blur_far_distance = 8.11
+dof_blur_far_transition = 4.35
+dof_blur_near_distance = 1.07
+dof_blur_amount = 0.09
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj7yv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
+size = Vector3(7.554123, 5.767639, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
+height = 10.2404785
+radius = 0.29638672
+
+[node name="World" type="Node3D" unique_id=1718166395]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575047551]
+environment = SubResource("Environment_tlwt5")
+camera_attributes = SubResource("CameraAttributesPractical_pkg7o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1089699473]
+transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.71790874, 0.6804683, 0.8865833, -0.4005965, 0.23128448, -26.487026, 17.557579, 18.056719)
+light_color = Color(0.79607844, 1, 1, 1)
+shadow_enabled = true
+
+[node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
+transform = Transform3D(100.09448, 0, 0, 0, 0.047322877, 0, 0, 0, 77.39491, 0, 0, 0)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_fj7yv")
+material = SubResource("StandardMaterial3D_036b0")
+
+[node name="House1" type="StaticBody3D" parent="." unique_id=172113325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5467453)
+
+[node name="Sprite3D" type="Sprite3D" parent="House1" unique_id=925833836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_53ewl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House1" unique_id=1853201238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14937592, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8619156, 9.859056, 8.055897)
+
+[node name="Sprite3D" type="Sprite3D" parent="Pole" unique_id=778523793]
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("6_k08es")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pole" unique_id=1805237533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_pkg7o")
