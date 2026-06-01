@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://fhug7x2ysuh8"]
+
+[ext_resource type="Script" uid="uid://cweuhxallo5mj" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://cipb3xyo0a16p" path="res://Ruru.gltf" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://cm54fdn8egxpf" path="res://Art/Route2/R_Stay/R_Stay_1.png" id="2_hp6x6"]
+[ext_resource type="Texture2D" uid="uid://b5sxj5t51ufh2" path="res://Art/Route2/L_Stay/L_Stay_1.png" id="2_m7dl7"]
+[ext_resource type="Texture2D" uid="uid://cdaajywafw6b8" path="res://Art/Route2/R_Stay/R_Stay_2.png" id="3_3tkgg"]
+[ext_resource type="Texture2D" uid="uid://bxwa6tow3ny13" path="res://Art/Route2/L_Stay/L_Stay_2.png" id="3_48og4"]
+[ext_resource type="Texture2D" uid="uid://cy8somelhnihq" path="res://Art/Route2/R_Stay/R_Stay_3.png" id="4_l6ohk"]
+[ext_resource type="Texture2D" uid="uid://cp3w8ldd82yir" path="res://Art/Route2/L_Stay/L_Stay_3.png" id="4_xmpta"]
+[ext_resource type="Texture2D" uid="uid://cb07gj0bobtij" path="res://Art/Route2/L_Stay/L_Stay_4.png" id="5_mrbh7"]
+[ext_resource type="Texture2D" uid="uid://dohfrg7m137tr" path="res://Art/Route2/R_Stay/R_Stay_4.png" id="5_oudfo"]
+[ext_resource type="Texture2D" uid="uid://hap28rwkx4ya" path="res://Art/Route2/R_Stay/R_Stay_5.png" id="6_d6rpx"]
+[ext_resource type="Texture2D" uid="uid://co341w105qv7s" path="res://Art/Route2/L_Stay/L_Stay_5.png" id="6_lrhq4"]
+[ext_resource type="Texture2D" uid="uid://gxgumqud7lcy" path="res://Art/Route2/L_Stay/L_Stay_6.png" id="7_ibubc"]
+[ext_resource type="Texture2D" uid="uid://bo80eeny5a2c6" path="res://Art/Route2/R_Stay/R_Stay_6.png" id="7_r3kul"]
+[ext_resource type="Texture2D" uid="uid://b2nb6hmhlrvqs" path="res://Art/Route2/L_Stay/L_Stay_7.png" id="8_gueye"]
+[ext_resource type="Texture2D" uid="uid://daq3ft85ed8cj" path="res://Art/Route2/R_Stay/R_Stay_7.png" id="8_jatw7"]
+[ext_resource type="Texture2D" uid="uid://drb7npti8jmjh" path="res://Art/Route2/L_Stay/L_Stay_8.png" id="9_3tfrk"]
+[ext_resource type="Texture2D" uid="uid://87g8xgvym4h1" path="res://Art/Route2/R_Stay/R_Stay_8.png" id="9_rv870"]
+[ext_resource type="Texture2D" uid="uid://bmfh2al1v0bo7" path="res://Art/Route2/R_Walk/R_Walk_1.png" id="10_efikj"]
+[ext_resource type="Texture2D" uid="uid://uqlfx4ahsgch" path="res://Art/Route2/R_Walk/R_Walk_2.png" id="11_itxgx"]
+[ext_resource type="Texture2D" uid="uid://deocmv2r0fm5u" path="res://Art/Route2/R_Walk/R_Walk_3.png" id="12_cgsek"]
+[ext_resource type="Texture2D" uid="uid://calugndllpck2" path="res://Art/Route2/R_Walk/R_Walk_4.png" id="13_0pi4m"]
+[ext_resource type="Texture2D" uid="uid://pe2f1wi20uxg" path="res://Art/Route2/R_Walk/R_Walk_5.png" id="14_sg6sq"]
+[ext_resource type="Texture2D" uid="uid://bhha5fnyikqm1" path="res://Art/Route2/R_Walk/R_Walk_6.png" id="15_h84ma"]
+[ext_resource type="Texture2D" uid="uid://cgibm04ypge34" path="res://Art/Route2/R_Walk/R_Walk_7.png" id="16_47wu6"]
+[ext_resource type="Texture2D" uid="uid://do4aw5mqyiiuy" path="res://Art/Route2/R_Walk/R_Walk_8.png" id="17_2n1s8"]
+[ext_resource type="Texture2D" uid="uid://bv42widhjs6fk" path="res://Art/Route2/L_Walk/L_Walk_1.png" id="18_f7new"]
+[ext_resource type="Texture2D" uid="uid://bnoj2qwbtn1em" path="res://Art/Route2/L_Walk/L_Walk_2.png" id="19_ravlb"]
+[ext_resource type="Texture2D" uid="uid://dt4vwq7ugppmn" path="res://Art/Route2/L_Walk/L_Walk_3.png" id="20_6efpq"]
+[ext_resource type="Texture2D" uid="uid://b2arwbwgpfpqa" path="res://Art/Route2/L_Walk/L_Walk_4.png" id="21_fhngp"]
+[ext_resource type="Texture2D" uid="uid://dnofpp8cto0nn" path="res://Art/Route2/L_Walk/L_Walk_5.png" id="22_nd6qy"]
+[ext_resource type="Texture2D" uid="uid://b8wyj34nffjgi" path="res://Art/Route2/L_Walk/L_Walk_6.png" id="23_23wgl"]
+[ext_resource type="Texture2D" uid="uid://d28p4giiti8we" path="res://Art/Route2/L_Walk/L_Walk_7.png" id="24_u4q42"]
+[ext_resource type="Texture2D" uid="uid://78ox72w6lb24" path="res://Art/Route2/L_Walk/L_Walk_8.png" id="25_ctcj5"]
+[ext_resource type="Shader" uid="uid://bfkgvacs0t50i" path="res://shaders/sprite_shadow.gdshader" id="34_xmpta"]
+[ext_resource type="Script" uid="uid://c62d1ddfctndb" path="res://shadow.gd" id="35_mrbh7"]
+[ext_resource type="Texture2D" uid="uid://0l4qhw3f27ki" path="res://Ruru_0.png" id="37_mrbh7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efikj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m7dl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_48og4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xmpta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mrbh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lrhq4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ibubc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gueye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3tfrk")
+}],
+"loop": true,
+"name": &"idle_L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hp6x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3tkgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l6ohk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oudfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d6rpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r3kul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jatw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rv870")
+}],
+"loop": true,
+"name": &"idle_R",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_f7new")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ravlb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6efpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fhngp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_nd6qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_23wgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_u4q42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ctcj5")
+}],
+"loop": true,
+"name": &"walk_L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_efikj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_itxgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cgsek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0pi4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sg6sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h84ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_47wu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2n1s8")
+}],
+"loop": true,
+"name": &"walk_R",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrhq4"]
+render_priority = 0
+shader = ExtResource("34_xmpta")
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.6)
+shader_parameter/shadow_sharpness = 0.8
+
+[sub_resource type="QuadMesh" id="QuadMesh_xmpta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrbh7"]
+shading_mode = 2
+albedo_texture = ExtResource("37_mrbh7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrhq4"]
+shading_mode = 2
+albedo_texture = ExtResource("37_mrbh7")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8nskv"]
+radius = 0.3671875
+height = 1.7972412
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xhfnw"]
+animation = &"DwarfIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kpjcp"]
+animation = &"Floating"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kne1u"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e80uo"]
+animation = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cxr5p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tdg3f"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dtqjt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ncpa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wi0c6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hp6x6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3tkgg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6ohk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oudfo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_d6rpx"]
+states/DwarfIdle/node = SubResource("AnimationNodeAnimation_xhfnw")
+states/DwarfIdle/position = Vector2(435, 12)
+states/Floating/node = SubResource("AnimationNodeAnimation_kpjcp")
+states/Floating/position = Vector2(359, 146)
+states/Jump/node = SubResource("AnimationNodeAnimation_kne1u")
+states/Jump/position = Vector2(541, 224)
+states/Walking/node = SubResource("AnimationNodeAnimation_e80uo")
+states/Walking/position = Vector2(789, 22)
+transitions = ["DwarfIdle", "Jump", SubResource("AnimationNodeStateMachineTransition_cxr5p"), "Jump", "Floating", SubResource("AnimationNodeStateMachineTransition_tdg3f"), "Floating", "DwarfIdle", SubResource("AnimationNodeStateMachineTransition_dtqjt"), "DwarfIdle", "Walking", SubResource("AnimationNodeStateMachineTransition_5ncpa"), "Walking", "DwarfIdle", SubResource("AnimationNodeStateMachineTransition_wi0c6"), "Walking", "Jump", SubResource("AnimationNodeStateMachineTransition_hp6x6"), "Floating", "Walking", SubResource("AnimationNodeStateMachineTransition_3tkgg"), "Walking", "Floating", SubResource("AnimationNodeStateMachineTransition_l6ohk"), "Start", "DwarfIdle", SubResource("AnimationNodeStateMachineTransition_oudfo")]
+graph_offset = Vector2(102, -62)
+
+[node name="Player" type="CharacterBody3D" unique_id=1765984049]
+script = ExtResource("1_kpjcp")
+
+[node name="Katawara" type="AnimatedSprite3D" parent="." unique_id=387495013]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0.84120977, 0)
+layers = 2
+billboard = 2
+shaded = true
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_efikj")
+animation = &"idle_L"
+
+[node name="Shadow" type="MeshInstance3D" parent="Katawara" unique_id=395277467]
+transform = Transform3D(27.830849, 0, 0, 0, -1.2165249e-06, 27.830849, 0, -27.830849, -1.2165249e-06, 0, -13.870822, -14.1801405)
+visible = false
+material_override = SubResource("ShaderMaterial_lrhq4")
+mesh = SubResource("QuadMesh_xmpta")
+script = ExtResource("35_mrbh7")
+
+[node name="Ruru" parent="." unique_id=158968547 instance=ExtResource("1_xhfnw")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+visible = false
+
+[node name="Export" parent="Ruru" index="0" unique_id=909931513]
+transform = Transform3D(0.99221236, 0.05565886, 0.111429684, -0.06303139, 0.99597204, 0.06376992, -0.10743151, -0.07029688, 0.9917241, -1.1183722, -1.0781574, 2.859088)
+
+[node name="Skeleton3D" parent="Ruru/Export/Grp_Jnt" parent_id_path=PackedInt32Array(158968547, 965927320) index="0" unique_id=566622015]
+bones/1/rotation = Quaternion(0.14692204, -0.103882566, 0.9833224, 0.026447384)
+bones/2/rotation = Quaternion(0.070862286, -0.046605356, 0.15417653, 0.98439634)
+bones/4/rotation = Quaternion(-0.05390793, 0.06503898, 0.012636833, 0.9963454)
+bones/5/rotation = Quaternion(-0.06813884, 0.020093054, 0.17145357, 0.98262763)
+bones/7/rotation = Quaternion(-0.010777781, 0.02081735, 0.006390406, 0.99970484)
+bones/8/rotation = Quaternion(-0.021928594, 0.08559751, 0.050938074, 0.9947852)
+bones/9/rotation = Quaternion(-0.018936679, -0.02167841, 0.022694625, 0.999328)
+bones/11/rotation = Quaternion(-0.01009458, 0.97882384, 0.07678032, -0.18949091)
+bones/20/rotation = Quaternion(0.44516188, 0.6075248, 0.5089078, -0.41684222)
+bones/21/rotation = Quaternion(0.8275556, -0.30653834, -0.112031855, 0.45676565)
+bones/22/rotation = Quaternion(-0.14025386, 0.26033086, 0.71852815, 0.6295031)
+bones/24/rotation = Quaternion(0.59330547, -0.36250204, 0.443127, 0.5658793)
+bones/25/rotation = Quaternion(0.73140097, -0.25283062, -0.20050745, 0.6007713)
+bones/26/rotation = Quaternion(-0.04445379, 4.0190507e-08, 0.1694476, 0.9845362)
+
+[node name="Geo_Body" parent="Ruru/Export/Grp_Jnt/Skeleton3D" index="0" unique_id=124997253]
+layers = 2
+material_override = SubResource("StandardMaterial3D_mrbh7")
+
+[node name="Geo_Face" parent="Ruru/Export/Grp_Jnt/Skeleton3D" index="1" unique_id=85767567]
+layers = 2
+material_override = SubResource("StandardMaterial3D_lrhq4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136596498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9062793, 0)
+shape = SubResource("CapsuleShape3D_8nskv")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1601471920]
+root_node = NodePath("../Ruru")
+tree_root = SubResource("AnimationNodeStateMachine_d6rpx")
+anim_player = NodePath("../Ruru/AnimationPlayer")
+
+[editable path="Ruru"]

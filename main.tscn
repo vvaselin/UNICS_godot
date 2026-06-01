@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bb4r8yao2d6v8"]
+
+[ext_resource type="PackedScene" uid="uid://ccaig4lg1bxg2" path="res://world.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://PlayerSwitch.gd" id="2_0xm2m"]
+
+[node name="main" type="Node" unique_id=1905392597]
+
+[node name="World" parent="." unique_id=1718166395 instance=ExtResource("1_ig7tw")]
+
+[node name="DirectionalLight3D" parent="World" index="1" unique_id=1089699473]
+light_color = Color(0.84184813, 0.986013, 0.99999994, 1)
+light_energy = 1.31
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1860232106]
+
+[node name="Player切り替え" type="Button" parent="CanvasLayer" unique_id=45234739]
+offset_left = 133.0
+offset_top = 24.0
+offset_right = 291.96774
+offset_bottom = 75.0
+focus_mode = 0
+text = "2D⇔3D"
+script = ExtResource("2_0xm2m")
+
+[connection signal="pressed" from="CanvasLayer/Player切り替え" to="World/Player" method="_on_player切り替え_pressed"]
+
+[editable path="World"]

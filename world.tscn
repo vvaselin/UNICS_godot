@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://ccaig4lg1bxg2"]
+
+[ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://bt8uone2gkgtk" path="res://Art/Route2/house/1_1.png" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://df0jdaloohm80" path="res://Art/Route2/house/1_4.png" id="2_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://d4dfwbsy3ikfl" path="res://Art/Route2/house/2_1.png" id="3_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://h2b6lwhantar" path="res://Art/Route2/house/3_5.png" id="4_036b0"]
+[ext_resource type="Texture2D" uid="uid://dd6qnvn4w3vxv" path="res://Art/Route2/house/3_2.png" id="5_dwbse"]
+[ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_pkg7o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_fj7yv"]
+sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_fj7yv")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.3
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pkg7o"]
+dof_blur_far_distance = 8.11
+dof_blur_far_transition = 4.35
+dof_blur_near_distance = 1.07
+dof_blur_amount = 0.09
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj7yv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
+size = Vector3(7.554123, 5.767639, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
+height = 10.2404785
+radius = 0.2631836
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gbfbk"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_aqk2v"]
+offsets = PackedFloat32Array(0, 0.33221477, 0.7080537, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 0.8392157, 1, 1, 1, 0.8392157, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_036b0"]
+gradient = SubResource("Gradient_aqk2v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aqk2v"]
+emission_shape_scale = Vector3(5, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.05, 0)
+color_ramp = SubResource("GradientTexture1D_036b0")
+turbulence_enabled = true
+turbulence_noise_strength = 1.86
+
+[sub_resource type="Gradient" id="Gradient_036b0"]
+colors = PackedColorArray(1, 1, 1, 0.5647059, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dwbse"]
+gradient = SubResource("Gradient_036b0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.54509807, 1, 1, 1)
+albedo_texture = SubResource("GradientTexture2D_dwbse")
+grow = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_036b0"]
+material = SubResource("StandardMaterial3D_aqk2v")
+size = Vector2(0.1, 0.1)
+
+[node name="World" type="Node3D" unique_id=1718166395]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575047551]
+environment = SubResource("Environment_tlwt5")
+camera_attributes = SubResource("CameraAttributesPractical_pkg7o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1089699473]
+transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.71790874, 0.6804683, 0.8865833, -0.4005965, 0.23128448, -26.487026, 17.557579, 18.056719)
+light_color = Color(0.79607844, 1, 1, 1)
+shadow_enabled = true
+
+[node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
+transform = Transform3D(100.09448, 0, 0, 0, 0.047322877, 0, 0, 0, 77.39491, 0, 0, 0)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_fj7yv")
+material = SubResource("StandardMaterial3D_036b0")
+
+[node name="House1" type="StaticBody3D" parent="." unique_id=172113325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5467453)
+
+[node name="Sprite3D" type="Sprite3D" parent="House1" unique_id=925833836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("1_fj7yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House1" unique_id=1853201238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14937592, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="House2" type="StaticBody3D" parent="." unique_id=620833545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.220509, 0, -4.7716923)
+
+[node name="Sprite3D" type="Sprite3D" parent="House2" unique_id=1020192433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House2" unique_id=1268506790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41809082, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="House3" type="StaticBody3D" parent="." unique_id=1940829965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.100796, 0, -24.32306)
+
+[node name="Sprite3D" type="Sprite3D" parent="House3" unique_id=2105277109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("3_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House3" unique_id=216191810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3565216, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="House4" type="StaticBody3D" parent="." unique_id=127603014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.067696, 0, -11.406998)
+
+[node name="Sprite3D" type="Sprite3D" parent="House4" unique_id=1640675067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("4_036b0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House4" unique_id=1904248055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10241699, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="House5" type="StaticBody3D" parent="." unique_id=1461357617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.891129, 0, -12.9165745)
+
+[node name="Sprite3D" type="Sprite3D" parent="House5" unique_id=1854377005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("5_dwbse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="House5" unique_id=352039150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41809082, 2.8820496, 0)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8619156, 9.859056, 8.055897)
+
+[node name="Sprite3D" type="Sprite3D" parent="Pole" unique_id=778523793]
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("6_pkg7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pole" unique_id=1805237533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043182373, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="Player" parent="." unique_id=1765984049 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 7.0390444)
+collision_layer = 2
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1505913905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05325213, 1.4105108, 3.2758818)
+attributes = SubResource("CameraAttributesPractical_gbfbk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player/Camera3D" unique_id=855362468]
+transform = Transform3D(1.1355628, 0, 0, 0, 1, 0, 0, 0, 1.2853458, -0.05325213, 2.0942068, -4.8785906)
+amount = 12
+lifetime = 4.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_aqk2v")
+draw_pass_1 = SubResource("QuadMesh_036b0")
