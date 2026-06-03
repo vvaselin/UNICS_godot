@@ -13,6 +13,9 @@ const ROTATION_SPEED = 10.0
 var is_facing_right: bool = true
 var is_3d_mode: bool = false
 
+# シグナルで受け取ることで is_active のタイミング問題を回避
+var _dialogue_lock: bool = false
+
 func _ready() -> void:
 	if is_3d_mode:
 		visuals_node.visible = true
@@ -21,7 +24,19 @@ func _ready() -> void:
 		visuals_node.visible = false
 		sprite.visible = true
 
+	DialogueManager.dialogue_started.connect(func(): _dialogue_lock = true)
+	DialogueManager.dialogue_finished.connect(func(): _dialogue_lock = false)
+
 func _physics_process(delta: float) -> void:
+	# 会話中は水平移動・ジャンプを無効化（重力は継続）
+	if _dialogue_lock:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		move_and_slide()
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -31,7 +46,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

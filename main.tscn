@@ -4,12 +4,10 @@
 [ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://PlayerSwitch.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://bfbmd8d2rgad3" path="res://camera_occlude.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://cg8v4s17ke5br" path="res://ui/dialogue_ui.gd" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://bd4cdbf7h56dw" path="res://assets/portraits/もなか/もなか_にっこり.png" id="6_272bh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_7dtx0"]
-material = SubResource("StandardMaterial3D_1bvp3")
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7mycd"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1bvp3"]
 dof_blur_far_enabled = true
@@ -44,7 +42,7 @@ fill_to = Vector2(1, 0.5)
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.54509807, 1, 1, 1)
+albedo_color = Color(0.8310991, 0.9999998, 0.99783236, 1)
 albedo_texture = SubResource("GradientTexture2D_272bh")
 grow = true
 
@@ -56,20 +54,14 @@ size = Vector2(0.1, 0.1)
 
 [node name="World1" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
+[node name="Sky3D" parent="World1" index="1" unique_id=942708549]
+camera_attributes = SubResource("CameraAttributesPractical_7mycd")
+
 [node name="CollisionShape3D" parent="World1/House1" parent_id_path=PackedInt32Array(1718166395, 172113325) index="1" unique_id=1853201238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41141987, 2.8820496, 0)
 
-[node name="wall" parent="World1" index="9" unique_id=1751818640]
-transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, -4.813319)
-
-[node name="wall7" type="CSGMesh3D" parent="World1" unique_id=903627914]
-transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, 12.045785)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
-
 [node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 7.0390444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 16.892084)
 collision_layer = 2
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=1106145371]
@@ -78,8 +70,8 @@ attributes = SubResource("CameraAttributesPractical_1bvp3")
 script = ExtResource("3_1bvp3")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player/Camera3D" unique_id=1762799779]
-transform = Transform3D(1.1355628, 0, 0, 0, 1, 0, 0, 0, 1.2853458, -0.05325213, 2.0942068, -4.8785906)
-amount = 12
+transform = Transform3D(0.9612247, 0, 0, 0, 0.4447388, 0, 0, 0, 1.1228359, -0.05325213, 0.8210397, -4.8785906)
+amount = 18
 lifetime = 4.0
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_7mycd")
@@ -95,6 +87,58 @@ offset_bottom = 75.0
 focus_mode = 0
 text = "2D⇔3D"
 script = ExtResource("2_0xm2m")
+
+[node name="DialogueUI" type="Control" parent="CanvasLayer" unique_id=627234665]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1158.0
+offset_bottom = 650.0
+script = ExtResource("6_7mycd")
+
+[node name="Box" type="Panel" parent="CanvasLayer/DialogueUI" unique_id=1303154657]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 465.0
+offset_right = 1015.0
+offset_bottom = 619.0
+
+[node name="NameLabel" type="Label" parent="CanvasLayer/DialogueUI/Box" unique_id=1910049051]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 5.0
+offset_right = 540.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 20
+text = "もなか"
+vertical_alignment = 1
+
+[node name="TextLabel" type="Label" parent="CanvasLayer/DialogueUI/Box" unique_id=1384507924]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 38.0
+offset_right = 884.0
+offset_bottom = 144.0
+theme_override_font_sizes/font_size = 32
+text = "おはよう"
+
+[node name="Cursor" type="Label" parent="CanvasLayer/DialogueUI/Box" unique_id=781393795]
+layout_mode = 0
+offset_left = 918.0
+offset_top = 103.0
+offset_right = 1006.0
+offset_bottom = 146.0
+text = "▼"
+vertical_alignment = 1
+
+[node name="Portrait" type="TextureRect" parent="CanvasLayer/DialogueUI" unique_id=1148396688]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 278.0
+offset_right = 245.0
+offset_bottom = 671.0
+texture = ExtResource("6_272bh")
+expand_mode = 4
+stretch_mode = 4
 
 [connection signal="pressed" from="CanvasLayer/Player切り替え" to="Player" method="_on_player切り替え_pressed"]
 

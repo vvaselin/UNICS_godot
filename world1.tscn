@@ -2,72 +2,366 @@
 
 [ext_resource type="Texture2D" uid="uid://bt8uone2gkgtk" path="res://Art/Route2/house/1_1.png" id="1_53ewl"]
 [ext_resource type="Texture2D" uid="uid://cly6m4q748kfw" path="res://Art/Route2/telephone_pole/3.png" id="4_cxftf"]
+[ext_resource type="Texture2D" uid="uid://c4qrxh0ivb134" path="res://Art/Route2/NOM/NOM_0001.png" id="5_3x3nl"]
 [ext_resource type="Texture2D" uid="uid://bl0nqdecyun61" path="res://Art/Route2/telephone_pole/2.png" id="5_by2nx"]
 [ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_k08es"]
+[ext_resource type="Texture2D" uid="uid://be08twwhsq1c" path="res://Art/Route2/NOM/NOM_0002.png" id="6_u8a3u"]
+[ext_resource type="Texture2D" uid="uid://cp06e8wq3006d" path="res://Art/Route2/NOM/NOM_0003.png" id="7_armay"]
+[ext_resource type="Texture2D" uid="uid://c7vfsi8qumcq5" path="res://Art/Route2/NOM/NOM_0004.png" id="8_k08es"]
+[ext_resource type="Texture2D" uid="uid://day0embh1t8c3" path="res://Art/Route2/NOM/NOMflp_0001.png" id="9_xr4jf"]
+[ext_resource type="Texture2D" uid="uid://d1vw0hp7hxiyk" path="res://Art/Route2/NOM/NOMflp_0002.png" id="10_0bnnm"]
+[ext_resource type="Texture2D" uid="uid://c6pentofmir04" path="res://Art/Route2/NOM/NOMflp_0003.png" id="11_j8dmm"]
+[ext_resource type="Texture2D" uid="uid://bs2rmlhuokpg5" path="res://Art/Route2/NOM/NOMflp_0004.png" id="12_y6ugg"]
+[ext_resource type="Script" uid="uid://oaivnpnv7270" path="res://interactable.gd" id="13_0bnnm"]
+[ext_resource type="Script" uid="uid://dt6c7l80jd20p" path="res://animated_sprite_3d.gd" id="13_j8dmm"]
+[ext_resource type="Shader" uid="uid://cvd0x7lon1ur6" path="res://addons/sky_3d/shaders/SkyMaterial.gdshader" id="15_7qjai"]
+[ext_resource type="Texture2D" uid="uid://cfqk60lpl5ljv" path="res://addons/sky_3d/assets/resources/SNoise.tres" id="16_wtbqh"]
+[ext_resource type="Texture2D" uid="uid://cecwdqjol0ckd" path="res://addons/sky_3d/assets/textures/noiseClouds.png" id="17_r80sc"]
+[ext_resource type="Texture2D" uid="uid://2r8ylu6rg5dp" path="res://addons/sky_3d/assets/thirdparty/textures/moon/MoonMap.png" id="18_ogfv4"]
+[ext_resource type="Texture2D" uid="uid://djpfuyxkryegn" path="res://addons/sky_3d/assets/textures/noise.jpg" id="19_ghxyc"]
+[ext_resource type="Texture2D" uid="uid://bm7dot7t7u1q4" path="res://addons/sky_3d/assets/thirdparty/textures/milkyway/StarField.jpg" id="20_f4nph"]
+[ext_resource type="Texture2D" uid="uid://c1vwcdcdvb74a" path="res://addons/sky_3d/assets/thirdparty/textures/milkyway/Milkyway.jpg" id="21_fjn54"]
+[ext_resource type="Script" uid="uid://deo0gxkmk2ahd" path="res://addons/sky_3d/src/Sky3D.gd" id="22_j0wt1"]
+[ext_resource type="Script" uid="uid://b4tkplvh7fq40" path="res://addons/sky_3d/src/SkyDome.gd" id="23_2e7l7"]
+[ext_resource type="Script" uid="uid://cjmkcj8hwm7ts" path="res://addons/sky_3d/src/TimeOfDay.gd" id="24_scuj5"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y8dm7"]
+shader = ExtResource("15_7qjai")
+shader_parameter/sky_visible = true
+shader_parameter/color_correction = Vector2(0, 0.95)
+shader_parameter/ground_color = Color(0.3, 0.3, 0.3, 1)
+shader_parameter/horizon_offset = 0.0
+shader_parameter/atm_darkness = 0.5
+shader_parameter/atm_sun_intensity = 18.0
+shader_parameter/atm_day_tint = Color(0.807843, 0.909804, 1, 1)
+shader_parameter/atm_horizon_light_tint = Color(0.980392, 0.635294, 0.462745, 1)
+shader_parameter/atm_night_tint = Color(0, 0, 0, 0)
+shader_parameter/atm_level_params = Vector3(1, 0, 0)
+shader_parameter/atm_thickness = 0.7
+shader_parameter/atm_beta_ray = Vector3(5.804544e-06, 1.3562913e-05, 3.311258e-05)
+shader_parameter/atm_beta_mie = Vector3(3.038e-08, 3.038e-08, 3.038e-08)
+shader_parameter/sun_light_color = Color(1, 1, 1, 1)
+shader_parameter/sun_disk_color = Color(0.996094, 0.541334, 0.140076, 1)
+shader_parameter/sun_disk_intensity = 30.0
+shader_parameter/sun_disk_size = 0.02
+shader_parameter/atm_sun_mie_tint = Color(1, 1, 1, 1)
+shader_parameter/atm_sun_mie_intensity = 1.0
+shader_parameter/atm_sun_partial_mie_phase = Vector3(0.36, 1.64, 1.6)
+shader_parameter/moon_color = Color(1, 1, 1, 1)
+shader_parameter/moon_texture = ExtResource("18_ogfv4")
+shader_parameter/moon_texture_alignment = Vector3(7, 1.4, 4.8)
+shader_parameter/moon_texture_flip_u = false
+shader_parameter/moon_texture_flip_v = false
+shader_parameter/moon_size = 0.07
+shader_parameter/atm_moon_mie_tint = Color(0.137255, 0.184314, 0.292196, 1)
+shader_parameter/atm_moon_mie_intensity = 0.0
+shader_parameter/atm_moon_partial_mie_phase = Vector3(0.36, 1.64, 1.6)
+shader_parameter/starmap_color = Color(0.709804, 0.709804, 0.709804, 0.854902)
+shader_parameter/starmap_texture = ExtResource("21_fjn54")
+shader_parameter/starmap_flip_u = false
+shader_parameter/starmap_flip_v = false
+shader_parameter/starmap_alignment = Vector3(2.68288, -0.25891, 0.40101)
+shader_parameter/star_rotation_offset = 9.38899
+shader_parameter/star_rotation = -11.711511505502706
+shader_parameter/star_tilt = -1.2915436464758039
+shader_parameter/star_field_color = Color(1, 1, 1, 1)
+shader_parameter/star_field_texture = ExtResource("20_f4nph")
+shader_parameter/star_scintillation = 0.75
+shader_parameter/star_scintillation_speed = 0.01
+shader_parameter/noise_tex = ExtResource("19_ghxyc")
+shader_parameter/clouds_night_color = Color(0.090196, 0.094118, 0.129412, 1)
+shader_parameter/cirrus_visible = true
+shader_parameter/cirrus_intensity = 2.0
+shader_parameter/cirrus_coverage = 0.5
+shader_parameter/cirrus_thickness = 1.7
+shader_parameter/cirrus_absorption = 2.0
+shader_parameter/cirrus_sky_tint_fade = 0.5
+shader_parameter/cirrus_size = 1.0
+shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
+shader_parameter/cirrus_position1 = Vector2(0.8920861, 0.8920861)
+shader_parameter/cirrus_position2 = Vector2(0.8920861, 0.8920861)
+shader_parameter/cirrus_texture = ExtResource("16_wtbqh")
+shader_parameter/cumulus_visible = true
+shader_parameter/cumulus_intensity = 0.6
+shader_parameter/cumulus_coverage = 0.55
+shader_parameter/cumulus_thickness = 0.0243
+shader_parameter/cumulus_absorption = 2.0
+shader_parameter/cumulus_noise_freq = 2.7
+shader_parameter/cumulus_sky_tint_fade = 0.0
+shader_parameter/cumulus_size = 0.5
+shader_parameter/cumulus_position = Vector2(4.461123, 4.461123)
+shader_parameter/cumulus_texture = ExtResource("17_r80sc")
+shader_parameter/cumulus_partial_mie_phase = Vector3(0.957564, 1.042436, 0.412)
+shader_parameter/cumulus_mie_intensity = 1.0
+shader_parameter/show_azimuthal_grid = false
+shader_parameter/azimuthal_grid_color = Color(0.87058824, 0.72156864, 0.5294118, 1)
+shader_parameter/azimuthal_grid_rotation_offset = 0.03
+shader_parameter/show_equatorial_grid = false
+shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
+shader_parameter/equatorial_grid_rotation_offset = 0.03
+shader_parameter/moon_matrix = Basis(0.99095035, 0.12902987, 0.036998715, -0.055764243, 0.64645714, -0.7609098, -0.12209816, 0.7519606, 0.64780205)
 
-[sub_resource type="Sky" id="Sky_fj7yv"]
-sky_material = SubResource("ProceduralSkyMaterial_f3sb7")
+[sub_resource type="Sky" id="Sky_60cek"]
+sky_material = SubResource("ShaderMaterial_y8dm7")
 
-[sub_resource type="Environment" id="Environment_tlwt5"]
+[sub_resource type="Environment" id="Environment_hrfrc"]
 background_mode = 2
-sky = SubResource("Sky_fj7yv")
-tonemap_mode = 2
+sky = SubResource("Sky_60cek")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.62
+tonemap_white = 6.0
 glow_enabled = true
-glow_intensity = 1.0
-glow_bloom = 0.3
+glow_normalized = true
+glow_strength = 1.59
+glow_blend_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.15243411, 0.62558013, 0.9999998, 1)
+fog_sky_affect = 0.159
+fog_depth_end = 2692.9
+adjustment_enabled = true
+adjustment_brightness = 1.26
+adjustment_contrast = 1.065
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_pkg7o"]
-dof_blur_far_distance = 8.11
-dof_blur_far_transition = 4.35
-dof_blur_near_distance = 1.07
-dof_blur_amount = 0.09
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7qjai"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fj7yv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y6ugg"]
+material = SubResource("StandardMaterial3D_1bvp3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8dmm"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dtx0"]
+material = SubResource("StandardMaterial3D_j8dmm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpbrx"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wmgn3"]
+material = SubResource("StandardMaterial3D_hpbrx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qjai"]
+size = Vector3(1, 12.431763, 59.417114)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtbqh"]
+size = Vector3(1, 12.431763, 59.417114)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r80sc"]
+size = Vector3(1, 12.431763, 90.93948)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogfv4"]
+size = Vector3(1, 12.431763, 90.93948)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cxftf"]
-size = Vector3(6.7314453, 5.983917, 4.3864746)
+size = Vector3(6.7314453, 5.983917, 2.7868652)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_by2nx"]
 load_path = "res://.godot/imported/2_6.png-925b922d7e6d93abde24ee84a19f1305.s3tc.ctex"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_53ewl"]
-size = Vector3(8.752869, 5.465454, 4.6418457)
+size = Vector3(8.752869, 5.465454, 2.904419)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
 height = 10.2404785
 radius = 0.29638672
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
-albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_0bnnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3x3nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u8a3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_armay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k08es")
+}],
+"loop": true,
+"name": &"L",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xr4jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0bnnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j8dmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y6ugg")
+}],
+"loop": true,
+"name": &"R",
+"speed": 5.0
+}]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7dtx0"]
-material = SubResource("StandardMaterial3D_1bvp3")
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnnm"]
+size = Vector3(0.7537842, 0.83825684, 1.258667)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xr4jf"]
+size = Vector3(2.8533006, 1.3317871, 2.8360138)
 
 [node name="World1" type="Node3D" unique_id=1718166395]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575047551]
-environment = SubResource("Environment_tlwt5")
-camera_attributes = SubResource("CameraAttributesPractical_pkg7o")
+[node name="-----Environment-----" type="Node" parent="." unique_id=483129486]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1089699473]
-transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.71790874, 0.6804683, 0.8865833, -0.4005965, 0.23128448, -11.274174, 44.135826, 13.660303)
-light_color = Color(0.82625204, 0.9999998, 0.9388819, 1)
-light_energy = 2.231
+[node name="Sky3D" type="WorldEnvironment" parent="." unique_id=942708549]
+environment = SubResource("Environment_hrfrc")
+camera_attributes = SubResource("CameraAttributesPractical_7qjai")
+script = ExtResource("22_j0wt1")
+editor_time_enabled = false
+game_time_enabled = false
+current_time = 13.77
+tonemap_exposure = 0.62
+skydome_energy = 0.95
+sun_energy = 1.35
+wind_direction = 2.35619451204804
+metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
+
+[node name="SunLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1429810326]
+transform = Transform3D(0.80456126, 0.39764217, -0.44109178, 0, 0.7427417, 0.6695781, 0.59386975, -0.53871655, 0.59758115, -0.44109178, 0.6695781, 0.59758115)
+light_energy = 1.35
 shadow_enabled = true
 
+[node name="MoonLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1940460574]
+transform = Transform3D(0, -0.99251807, -0.12209815, 0.65268546, -0.092505105, 0.75196046, -0.75762904, -0.079691686, 0.64780205, -0.12209815, 0.75196046, 0.64780205)
+light_color = Color(0.572549, 0.776471, 0.956863, 1)
+light_energy = 0.0
+
+[node name="SkyDome" type="Node" parent="Sky3D" unique_id=1836952510]
+script = ExtResource("23_2e7l7")
+exposure = 0.95
+sun_azimuth = -3.7774527
+sun_altitude = -0.83715576
+sun_light_energy = 1.35
+moon_azimuth = -3.3278878
+moon_altitude = -0.7197653
+wind_direction = 2.35619451204804
+
+[node name="TimeOfDay" type="Node" parent="Sky3D" unique_id=1137077679]
+script = ExtResource("24_scuj5")
+editor_time_enabled = false
+game_time_enabled = false
+dome_path = NodePath("../SkyDome")
+current_time = 13.77
+
+[node name="-----Map-----" type="Node" parent="." unique_id=1614710551]
+
 [node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
-transform = Transform3D(89.279106, 0, 0, 0, 0.04732452, 0, 0, 0, 59.782726, 0, 0, 0)
+transform = Transform3D(335.55365, 0, 0, 0, 0.04732452, 0, 0, 0, 135.03082, 0, 0, -13.115936)
 use_collision = true
 collision_mask = 2
 mesh = SubResource("BoxMesh_fj7yv")
 material = SubResource("StandardMaterial3D_036b0")
+
+[node name="wall" type="CSGMesh3D" parent="." unique_id=567973214]
+transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, -4.813319)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_y6ugg")
+
+[node name="wall2" type="CSGMesh3D" parent="." unique_id=192776812]
+transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, -3.8822253, 1.0504556, 3.5779953)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall3" type="CSGMesh3D" parent="." unique_id=2098791869]
+transform = Transform3D(-24.419462, 0, 3.0343983e-08, 0, 2.2183166, 0, -2.1348174e-06, 0, -0.34709474, 19.216347, 1.0504556, 15.390675)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall4" type="CSGMesh3D" parent="." unique_id=1397633349]
+transform = Transform3D(8.418973, 0, -3.8692056e-07, 0, 2.1838994, 0, 7.5660523e-07, 0, 0.1204748, -23.582668, 1.0591934, 15.915111)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall5" type="CSGMesh3D" parent="." unique_id=990940063]
+transform = Transform3D(-24.425549, 0, 4.6394216e-08, 0, 2.2183166, 0, -2.1353492e-06, 0, -0.530688, 19.336296, 1.0504556, -8.505932)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall6" type="CSGMesh3D" parent="." unique_id=1586699199]
+transform = Transform3D(24.020094, 0, -1.0274592e-06, 0, 2.1838994, 0, 2.1586634e-06, 0, 0.31991825, -15.796254, 1.0591934, -8.72826)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall7" type="CSGMesh3D" parent="." unique_id=1144935113]
+transform = Transform3D(-3.4683475e-07, 0, -0.34709477, 0, 2.2183166, 0, 7.934654, 0, -1.5171993e-08, 7.1296253, 1.0504556, 11.556468)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_wmgn3")
+
+[node name="wall8" type="CSGMesh3D" parent="." unique_id=867426442]
+transform = Transform3D(-1.0593758e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.235695, 0, -1.5171993e-08, 31.354279, 1.0504556, 3.4736567)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall9" type="CSGMesh3D" parent="." unique_id=1127722822]
+transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, -27.632607, 1.0504556, 3.5779953)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="wall10" type="CSGMesh3D" parent="." unique_id=460003227]
+transform = Transform3D(8.418973, 0, -3.8692056e-07, 0, 2.1838994, 0, 7.5660523e-07, 0, 0.1204748, -8.021888, 1.0591934, 15.915111)
+use_collision = true
+collision_mask = 2
+mesh = SubResource("BoxMesh_7dtx0")
+
+[node name="見えない壁" type="Node3D" parent="." unique_id=846525399]
+
+[node name="Wall_E" type="StaticBody3D" parent="見えない壁" unique_id=260813144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.505634, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_E" unique_id=1942674988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -0.30291748)
+shape = SubResource("BoxShape3D_7qjai")
+
+[node name="Wall_W" type="StaticBody3D" parent="見えない壁" unique_id=1206061633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.444435, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_W" unique_id=687327424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -0.30291748)
+shape = SubResource("BoxShape3D_wtbqh")
+
+[node name="Wall_N" type="StaticBody3D" parent="見えない壁" unique_id=448609244]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.071274, 0, -29.697033)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_N" unique_id=754438512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -5.3834686)
+shape = SubResource("BoxShape3D_r80sc")
+
+[node name="Wall_S" type="StaticBody3D" parent="見えない壁" unique_id=1333820986]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.071274, 0, 29.245708)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_S" unique_id=514701072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -5.3834686)
+shape = SubResource("BoxShape3D_ogfv4")
+
+[node name="-----Object-----" type="Node" parent="." unique_id=334075064]
 
 [node name="House1" type="StaticBody3D" parent="." unique_id=172113325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.384611, 0, 4.9904747)
@@ -79,7 +373,7 @@ alpha_cut = 1
 texture = ExtResource("1_53ewl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House1" unique_id=1853201238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2748642, 2.9390411, -0.3031006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2748642, 2.9390411, -1.1029053)
 shape = SubResource("BoxShape3D_cxftf")
 
 [node name="House2" type="StaticBody3D" parent="." unique_id=1240164510]
@@ -92,7 +386,7 @@ alpha_cut = 1
 texture = SubResource("CompressedTexture2D_by2nx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House2" unique_id=1837424198]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14993858, 2.718338, 0.012573242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14993858, 2.718338, -0.85614014)
 shape = SubResource("BoxShape3D_53ewl")
 
 [node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
@@ -137,38 +431,29 @@ texture = ExtResource("5_by2nx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
 shape = SubResource("CylinderShape3D_pkg7o")
 
-[node name="wall2" type="CSGMesh3D" parent="." unique_id=192776812]
-transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, -3.8822253, 1.0504556, 3.5779953)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="-----Interact-----" type="Node" parent="." unique_id=1563189808]
 
-[node name="wall" type="CSGMesh3D" parent="." unique_id=1751818640]
-transform = Transform3D(-1.0843963e-06, 0, -0.34709477, 0, 2.2183166, 0, 24.808096, 0, -1.5171993e-08, 7.1296253, 1.0504556, 3.5779953)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="NOM" type="StaticBody3D" parent="." unique_id=1383875514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32874, 0, 16.58536)
 
-[node name="wall3" type="CSGMesh3D" parent="." unique_id=2098791869]
-transform = Transform3D(-12.404048, 0, 3.0343987e-08, 0, 2.2183166, 0, -1.0843963e-06, 0, -0.34709477, 13.182354, 1.0504556, 15.858536)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="NOM" unique_id=1845727770]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.07333028, 0.23873007, 0.52182436)
+billboard = 2
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_0bnnm")
+animation = &"R"
+frame_progress = 0.21478927
+script = ExtResource("13_j8dmm")
 
-[node name="wall4" type="CSGMesh3D" parent="." unique_id=1397633349]
-transform = Transform3D(24.019964, 0, -3.8692056e-07, 0, 2.1838994, 0, 2.1586518e-06, 0, 0.1204748, -15.875521, 1.0591934, 15.915111)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NOM" unique_id=936011063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10903549, 0.4528401, 0.12442398)
+shape = SubResource("BoxShape3D_0bnnm")
 
-[node name="wall5" type="CSGMesh3D" parent="." unique_id=990940063]
-transform = Transform3D(-24.425549, 0, 4.6394216e-08, 0, 2.2183166, 0, -2.1353492e-06, 0, -0.530688, 19.336296, 1.0504556, -8.505932)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="Area3D" type="Area3D" parent="NOM" unique_id=211988238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07333028, 0.7716267, 0.52182436)
+script = ExtResource("13_0bnnm")
+event_path = "res://event/event_01.json"
 
-[node name="wall6" type="CSGMesh3D" parent="." unique_id=1586699199]
-transform = Transform3D(24.020094, 0, -1.0274592e-06, 0, 2.1838994, 0, 2.1586634e-06, 0, 0.31991825, -15.796254, 1.0591934, -8.72826)
-use_collision = true
-collision_mask = 2
-mesh = SubResource("BoxMesh_7dtx0")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NOM/Area3D" unique_id=192045394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017460823, -0.08215332, 1.2232437)
+shape = SubResource("BoxShape3D_xr4jf")
