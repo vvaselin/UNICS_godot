@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://cg8v4s17ke5br" path="res://ui/dialogue_ui.gd" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bd4cdbf7h56dw" path="res://assets/portraits/もなか/もなか_にっこり.png" id="6_272bh"]
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7mycd"]
-
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1bvp3"]
 dof_blur_far_enabled = true
 dof_blur_near_enabled = true
@@ -54,23 +52,17 @@ size = Vector2(0.1, 0.1)
 
 [node name="World1" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
-[node name="Sky3D" parent="World1" index="1" unique_id=942708549]
-camera_attributes = SubResource("CameraAttributesPractical_7mycd")
-
-[node name="CollisionShape3D" parent="World1/House1" parent_id_path=PackedInt32Array(1718166395, 172113325) index="1" unique_id=1853201238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41141987, 2.8820496, 0)
-
 [node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022006214, 16.892084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1712034, 16.892084)
 collision_layer = 2
 
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=1106145371]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05325213, 1.4105108, 3.2758818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.411, 3.276)
 attributes = SubResource("CameraAttributesPractical_1bvp3")
 script = ExtResource("3_1bvp3")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player/Camera3D" unique_id=1762799779]
-transform = Transform3D(0.9612247, 0, 0, 0, 0.4447388, 0, 0, 0, 1.1228359, -0.05325213, 0.8210397, -4.8785906)
+transform = Transform3D(0.9612247, 0, 0, 0, 0.4447388, 0, 0, 0, 1.1228359, 0, 0.821, -4.879)
 amount = 18
 lifetime = 4.0
 randomness = 0.5
