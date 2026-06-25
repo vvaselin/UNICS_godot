@@ -21,7 +21,7 @@ DialogueManager="*uid://dno02nqwkara4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sky_3d/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

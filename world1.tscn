@@ -7,15 +7,25 @@
 [ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_k08es"]
 [ext_resource type="Texture2D" uid="uid://be08twwhsq1c" path="res://Art/Route2/NOM/NOM_0002.png" id="6_u8a3u"]
 [ext_resource type="Texture2D" uid="uid://cp06e8wq3006d" path="res://Art/Route2/NOM/NOM_0003.png" id="7_armay"]
+[ext_resource type="Texture2D" uid="uid://sqm0ot5tjagv" path="res://Art/Route2/tree_2/1.png" id="7_wmgn3"]
+[ext_resource type="Texture2D" uid="uid://7e0xt5ji1b5j" path="res://Art/Route2/tree_2/8.png" id="8_1r560"]
 [ext_resource type="Texture2D" uid="uid://c7vfsi8qumcq5" path="res://Art/Route2/NOM/NOM_0004.png" id="8_k08es"]
 [ext_resource type="Texture2D" uid="uid://day0embh1t8c3" path="res://Art/Route2/NOM/NOMflp_0001.png" id="9_xr4jf"]
 [ext_resource type="Texture2D" uid="uid://d1vw0hp7hxiyk" path="res://Art/Route2/NOM/NOMflp_0002.png" id="10_0bnnm"]
+[ext_resource type="Texture2D" uid="uid://b8s6bjnsbpj7o" path="res://Art/Route2/tree_2/5.png" id="10_vfioc"]
 [ext_resource type="Texture2D" uid="uid://c6pentofmir04" path="res://Art/Route2/NOM/NOMflp_0003.png" id="11_j8dmm"]
+[ext_resource type="Texture2D" uid="uid://3nexmstf7nca" path="res://Art/Route2/tree_1/5.png" id="11_vfioc"]
 [ext_resource type="Texture2D" uid="uid://df0jdaloohm80" path="res://Art/Route2/house/1_4.png" id="12_wtbqh"]
 [ext_resource type="Texture2D" uid="uid://bs2rmlhuokpg5" path="res://Art/Route2/NOM/NOMflp_0004.png" id="12_y6ugg"]
 [ext_resource type="Script" uid="uid://oaivnpnv7270" path="res://interactable.gd" id="13_0bnnm"]
+[ext_resource type="Texture2D" uid="uid://umjx3kvmuicp" path="res://Art/Route2/grass/4.png" id="13_8lj4n"]
 [ext_resource type="Script" uid="uid://dt6c7l80jd20p" path="res://animated_sprite_3d.gd" id="13_j8dmm"]
 [ext_resource type="Texture2D" uid="uid://dmcnlkfh3ydxg" path="res://Art/Route2/house/1_6.png" id="13_r80sc"]
+[ext_resource type="Texture2D" uid="uid://cm7rn2w0orq2d" path="res://Art/Route2/grass/2.png" id="15_wtbqh"]
+[ext_resource type="Texture2D" uid="uid://c622v1cby7iu6" path="res://Art/Route2/fence/3_L.png" id="16_ghxyc"]
+[ext_resource type="Texture2D" uid="uid://ddoot07cv55eb" path="res://Art/Route2/fence/3_R_diagonal.png" id="18_f4nph"]
+[ext_resource type="Texture2D" uid="uid://dpqt5di4gsttu" path="res://Art/Route2/grass/3.png" id="22_bk3rh"]
+[ext_resource type="Texture2D" uid="uid://bqrui5llh8pv8" path="res://Art/Route2/grass/1.png" id="24_7qjai"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpbrx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -113,6 +123,35 @@ load_path = "res://.godot/imported/2_5.png-b4281d8ca703d693e8baf8f537e34664.s3tc
 height = 10.2404785
 radius = 0.29638672
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1r560"]
+height = 10.2404785
+radius = 0.29638672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_in1k8"]
+height = 10.2404785
+radius = 0.29638672
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjn54"]
+load_path = "res://.godot/imported/3.png-1c84d928d57543eb6b3ace0169b7fe9a.s3tc.ctex"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bk3rh"]
+height = 10.2404785
+radius = 0.29638672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8lj4n"]
+height = 10.2404785
+radius = 0.29638672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vfioc"]
+height = 10.2404785
+radius = 0.29638672
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j0wt1"]
+load_path = "res://.godot/imported/3_mid.png-e29e930b228f0f33331041d73e4111e9.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2e7l7"]
+load_path = "res://.godot/imported/3_mid.png-e29e930b228f0f33331041d73e4111e9.s3tc.ctex"
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bnnm"]
 animations = [{
 "frames": [{
@@ -171,7 +210,7 @@ shadow_enabled = true
 [node name="-----Map-----" type="Node" parent="." unique_id=1614710551]
 
 [node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
-transform = Transform3D(335.55365, 0, 0, 0, 0.04732452, 0, 0, 0, 135.03082, 0.026374817, 0.14913559, -13.175175)
+transform = Transform3D(101.03526, 0, 0, 0, 0.04732452, 0, 0, 0, 72.76468, 0.026374817, 0.14913559, -0.1923523)
 use_collision = true
 collision_mask = 2
 mesh = SubResource("BoxMesh_fj7yv")
@@ -373,6 +412,205 @@ texture = ExtResource("5_by2nx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pole3" unique_id=1118242599]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
 shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="Tree" type="StaticBody3D" parent="." unique_id=490421623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.263268, 9.859056, 12.003696)
+
+[node name="Sprite3D" type="Sprite3D" parent="Tree" unique_id=531419195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012836456, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("7_wmgn3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree" unique_id=1538475443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_1r560")
+
+[node name="Tree2" type="StaticBody3D" parent="." unique_id=940431401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.665514, 9.859056, -3.2292824)
+
+[node name="Sprite3D" type="Sprite3D" parent="Tree2" unique_id=883972200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.503437, 0, -0.6091957)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("8_1r560")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree2" unique_id=1056365119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4443016, -4.9178467, -0.62382126)
+shape = SubResource("CylinderShape3D_in1k8")
+
+[node name="Tree3" type="StaticBody3D" parent="." unique_id=830511543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3398933, 9.859056, 3.82794)
+
+[node name="Sprite3D" type="Sprite3D" parent="Tree3" unique_id=1322453449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012836456, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_fjn54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree3" unique_id=335524735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
+shape = SubResource("CylinderShape3D_bk3rh")
+
+[node name="Tree4" type="StaticBody3D" parent="." unique_id=1126715662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.854374, 9.859056, -13.060011)
+
+[node name="Sprite3D" type="Sprite3D" parent="Tree4" unique_id=90802043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.64291716, 0.014251709, 0, 1.304472)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("10_vfioc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree4" unique_id=1438897190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.044456482, -4.9178467, 1.2827034)
+shape = SubResource("CylinderShape3D_8lj4n")
+
+[node name="Tree5" type="StaticBody3D" parent="." unique_id=788975635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.980974, 9.859056, 15.226397)
+
+[node name="Sprite3D" type="Sprite3D" parent="Tree5" unique_id=2103620355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.64291716, 0.69846916, -4.753148, -0.430233)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("11_vfioc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree5" unique_id=540102843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70872784, -4.9178467, -0.45199966)
+shape = SubResource("CylinderShape3D_vfioc")
+
+[node name="Grass" type="Sprite3D" parent="." unique_id=872300948]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1321273, 0.81998134, 1.882997)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("22_bk3rh")
+
+[node name="Grass2" type="Sprite3D" parent="." unique_id=615530579]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.8993957, 0.81998134, 12.701754)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_8lj4n")
+
+[node name="Grass3" type="Sprite3D" parent="." unique_id=1542435266]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.362378, 0.816334, 15.733051)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("24_7qjai")
+
+[node name="Grass4" type="Sprite3D" parent="." unique_id=97100346]
+transform = Transform3D(0.275, 0, 0, 0, 0.275, 0, 0, 0, 0.275, 3.9746003, 0.48039603, 15.763418)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("13_8lj4n")
+
+[node name="Grass5" type="Sprite3D" parent="." unique_id=1481924776]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.345561, 0.816334, 16.274002)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("15_wtbqh")
+
+[node name="Fence" type="Sprite3D" parent="." unique_id=1269992269]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -8.174778, 0.88627386, 20.442223)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("16_ghxyc")
+
+[node name="Fence2" type="Sprite3D" parent="Fence" unique_id=516206181]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.0900307, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_j0wt1")
+
+[node name="Fence3" type="Sprite3D" parent="Fence" unique_id=1594325750]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 10, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_2e7l7")
+
+[node name="Fence4" type="Sprite3D" parent="Fence" unique_id=765514466]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 15.09003, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("18_f4nph")
+
+[node name="Fence2" type="Sprite3D" parent="." unique_id=853817676]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -22.174778, 0.88627386, 20.442223)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("16_ghxyc")
+
+[node name="Fence2" type="Sprite3D" parent="Fence2" unique_id=415411361]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.0900307, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_j0wt1")
+
+[node name="Fence3" type="Sprite3D" parent="Fence2" unique_id=1690208501]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 10, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_2e7l7")
+
+[node name="Fence4" type="Sprite3D" parent="Fence2" unique_id=645017014]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 15.09003, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("18_f4nph")
+
+[node name="Fence3" type="Sprite3D" parent="." unique_id=18026528]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.7882993, 0.88627386, 20.442223)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("16_ghxyc")
+
+[node name="Fence2" type="Sprite3D" parent="Fence3" unique_id=1177852186]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.0900307, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_j0wt1")
+
+[node name="Fence3" type="Sprite3D" parent="Fence3" unique_id=80608648]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 10, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_2e7l7")
+
+[node name="Fence4" type="Sprite3D" parent="Fence3" unique_id=1024733067]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 15.09003, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("18_f4nph")
+
+[node name="Fence4" type="Sprite3D" parent="." unique_id=1650064773]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 13.825222, 0.88627386, 20.442223)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("16_ghxyc")
+
+[node name="Fence2" type="Sprite3D" parent="Fence4" unique_id=981593617]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.0900307, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_j0wt1")
+
+[node name="Fence3" type="Sprite3D" parent="Fence4" unique_id=83997754]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 10, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = SubResource("CompressedTexture2D_2e7l7")
+
+[node name="Fence4" type="Sprite3D" parent="Fence4" unique_id=1509696268]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 15.09003, 0, 0)
+shaded = true
+alpha_cut = 1
+texture = ExtResource("18_f4nph")
 
 [node name="-----Interact-----" type="Node" parent="." unique_id=1563189808]
 

@@ -52,6 +52,12 @@ size = Vector2(0.1, 0.1)
 
 [node name="World1" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
+[node name="floor" parent="World1" index="4" unique_id=160524289]
+operation = 2
+
+[node name="Area3D" parent="World1/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="2" unique_id=211988238 node_paths=PackedStringArray("hint_node")]
+hint_node = NodePath("../../../CanvasLayer/Hint")
+
 [node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1712034, 16.892084)
 collision_layer = 2
@@ -131,6 +137,28 @@ offset_bottom = 671.0
 texture = ExtResource("6_272bh")
 expand_mode = 4
 stretch_mode = 4
+
+[node name="Hint" type="Control" parent="CanvasLayer" unique_id=238324793]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="説明" type="Panel" parent="CanvasLayer/Hint" unique_id=2059145854]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 89.0
+offset_right = 293.0
+offset_bottom = 119.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Hint/説明" unique_id=1633472132]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 268.0
+offset_bottom = 26.0
+text = "Eキーで調べる"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Player切り替え" to="Player" method="_on_player切り替え_pressed"]
 
