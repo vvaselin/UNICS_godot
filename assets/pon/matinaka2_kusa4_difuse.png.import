@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drr88qdeoiwwd"
-path.s3tc="res://.godot/imported/3.png-94c59b9cbcdd31a1c3a905ca3da3a33b.s3tc.ctex"
+uid="uid://cq0f4xuk8hi08"
+path.s3tc="res://.godot/imported/matinaka2_kusa4_difuse.png-649e19f02b16bb9e6a66551da73b8da1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "d24726128085aaf730672f711cae1eb2"
+}
 
 [deps]
 
-source_file="res://Art/Route2/bamboo/3.png"
-dest_files=["res://.godot/imported/3.png-94c59b9cbcdd31a1c3a905ca3da3a33b.s3tc.ctex"]
+source_file="res://assets/pon/matinaka2_kusa4_difuse.png"
+dest_files=["res://.godot/imported/matinaka2_kusa4_difuse.png-649e19f02b16bb9e6a66551da73b8da1.s3tc.ctex"]
 
 [params]
 

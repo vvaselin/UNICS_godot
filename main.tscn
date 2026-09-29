@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb4r8yao2d6v8"]
 
-[ext_resource type="PackedScene" uid="uid://cs4ol6ndng3kt" path="res://world1.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cs4ol6ndng3kt" path="res://sample.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://PlayerSwitch.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://bfbmd8d2rgad3" path="res://camera_occlude.gd" id="3_1bvp3"]
@@ -50,22 +50,27 @@ size = Vector2(0.1, 0.1)
 
 [node name="main" type="Node" unique_id=1905392597]
 
-[node name="World1" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
+[node name="sample" parent="." unique_id=1718166395 instance=ExtResource("1_h2yge")]
 
-[node name="floor" parent="World1" index="4" unique_id=160524289]
+[node name="floor" parent="sample" index="4" unique_id=160524289]
 operation = 2
 
-[node name="Area3D" parent="World1/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="2" unique_id=211988238 node_paths=PackedStringArray("hint_node")]
+[node name="Area3D" parent="sample/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="2" unique_id=211988238 node_paths=PackedStringArray("hint_node")]
+hint_node = NodePath("../../../CanvasLayer/Hint")
+
+[node name="Area3D" parent="sample/ROBO" parent_id_path=PackedInt32Array(1718166395, 1301100828) index="2" unique_id=1103399645 node_paths=PackedStringArray("hint_node")]
 hint_node = NodePath("../../../CanvasLayer/Hint")
 
 [node name="Player" parent="." unique_id=1765984049 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1712034, 16.892084)
 collision_layer = 2
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1106145371]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.411, 3.276)
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1106145371 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0678937, 3.275999)
 attributes = SubResource("CameraAttributesPractical_1bvp3")
+fov = 70.0
 script = ExtResource("3_1bvp3")
+player = NodePath("..")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player/Camera3D" unique_id=1762799779]
 transform = Transform3D(0.9612247, 0, 0, 0, 0.4447388, 0, 0, 0, 1.1228359, 0, 0.821, -4.879)
@@ -162,4 +167,4 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Player切り替え" to="Player" method="_on_player切り替え_pressed"]
 
-[editable path="World1"]
+[editable path="sample"]

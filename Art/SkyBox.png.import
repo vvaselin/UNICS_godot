@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drr88qdeoiwwd"
-path.s3tc="res://.godot/imported/3.png-94c59b9cbcdd31a1c3a905ca3da3a33b.s3tc.ctex"
+uid="uid://cy4wsdp7yxfhm"
+path.s3tc="res://.godot/imported/SkyBox.png-665335e3db9d6333f60e120dc90b850b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Route2/bamboo/3.png"
-dest_files=["res://.godot/imported/3.png-94c59b9cbcdd31a1c3a905ca3da3a33b.s3tc.ctex"]
+source_file="res://Art/SkyBox.png"
+dest_files=["res://.godot/imported/SkyBox.png-665335e3db9d6333f60e120dc90b850b.s3tc.ctex"]
 
 [params]
 

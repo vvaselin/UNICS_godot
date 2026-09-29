@@ -248,23 +248,23 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 visible = false
 
 [node name="Export" parent="Ruru" index="0" unique_id=909931513]
-transform = Transform3D(0.99212724, 0.058372635, 0.1107971, -0.065863796, 0.9956962, 0.06519891, -0.106514424, -0.07198315, 0.991702, -1.095309, -1.047301, 2.6017103)
+transform = Transform3D(0.99104065, 0.06283815, 0.11785443, -0.07174278, 0.99475557, 0.07289853, -0.11265555, -0.08070062, 0.99035144, -1.2542377, -1.0293013, 3.10785)
 
 [node name="Skeleton3D" parent="Ruru/Export/Grp_Jnt" parent_id_path=PackedInt32Array(158968547, 965927320) index="0" unique_id=566622015]
-bones/1/rotation = Quaternion(0.14730203, -0.10433266, 0.98301065, 0.033272006)
-bones/2/rotation = Quaternion(0.07104971, -0.043615498, 0.16219231, 0.98323107)
-bones/4/rotation = Quaternion(-0.053992372, 0.06379149, 0.0076608188, 0.9964722)
-bones/5/rotation = Quaternion(-0.06849173, 0.020707939, 0.1737671, 0.9821838)
-bones/7/rotation = Quaternion(-0.00949183, 0.016557833, 0.00249426, 0.9998148)
-bones/8/rotation = Quaternion(-0.027010188, 0.09255188, 0.051051147, 0.99403137)
-bones/9/rotation = Quaternion(-0.06639491, 0.044192098, 0.041277, 0.9959594)
+bones/1/rotation = Quaternion(0.15233892, -0.103812516, 0.98238206, 0.030682568)
+bones/2/rotation = Quaternion(0.075270794, -0.041651998, 0.16740376, 0.982128)
+bones/4/rotation = Quaternion(-0.056388568, 0.06707636, 0.017629892, 0.99599713)
+bones/5/rotation = Quaternion(-0.06850188, 0.020209355, 0.1680201, 0.9831929)
+bones/7/rotation = Quaternion(-0.012108199, 0.01250551, 0.0008174593, 0.99984825)
+bones/8/rotation = Quaternion(-0.026676847, 0.09266207, 0.05228414, 0.9939661)
+bones/9/rotation = Quaternion(-0.052339334, 0.08444031, 0.065288834, 0.9929087)
 bones/11/rotation = Quaternion(-0.01009458, 0.97882384, 0.07678032, -0.18949091)
-bones/20/rotation = Quaternion(0.44681463, 0.609494, 0.51044786, -0.41026446)
-bones/21/rotation = Quaternion(0.82853085, -0.28416327, 0.18006644, 0.4476203)
-bones/22/rotation = Quaternion(0.00928192, 0.5280145, 0.675892, 0.51408625)
-bones/24/rotation = Quaternion(0.5967348, -0.3697029, 0.4359614, 0.5631741)
-bones/25/rotation = Quaternion(0.7364219, -0.24500674, -0.20352572, 0.59685165)
-bones/26/rotation = Quaternion(-0.043717064, -1.656903e-08, 0.16663934, 0.9850483)
+bones/20/rotation = Quaternion(0.4486541, 0.6105903, 0.51040715, -0.40666172)
+bones/21/rotation = Quaternion(0.7209511, -0.43692958, -0.010373207, 0.5377867)
+bones/22/rotation = Quaternion(-0.5342916, -0.4162029, 0.5927874, 0.43578762)
+bones/24/rotation = Quaternion(0.5922304, -0.3723916, 0.4389038, 0.5638716)
+bones/25/rotation = Quaternion(0.7350502, -0.25140786, -0.20672563, 0.59477717)
+bones/26/rotation = Quaternion(-0.042921286, 9.9397845e-08, 0.16360581, 0.98559165)
 
 [node name="Geo_Body" parent="Ruru/Export/Grp_Jnt/Skeleton3D" index="0" unique_id=124997253]
 layers = 2
