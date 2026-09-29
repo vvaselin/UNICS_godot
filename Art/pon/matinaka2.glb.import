@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cdc08in2vmbmw"
-path="res://.godot/imported/matinaka2.glb-024519591b075a6c866e647635551815.scn"
+path="res://.godot/imported/matinaka2.glb-8c745babd731ab7bce6ca092ab017bb8.scn"
 
 [deps]
 
-source_file="res://assets/pon/matinaka2.glb"
-dest_files=["res://.godot/imported/matinaka2.glb-024519591b075a6c866e647635551815.scn"]
+source_file="res://Art/pon/matinaka2.glb"
+dest_files=["res://.godot/imported/matinaka2.glb-8c745babd731ab7bce6ca092ab017bb8.scn"]
 
 [params]
 

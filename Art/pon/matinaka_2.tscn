@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbc1quu58l478"]
 
-[ext_resource type="PackedScene" uid="uid://cdc08in2vmbmw" path="res://assets/pon/matinaka2.glb" id="1_7r0q3"]
+[ext_resource type="PackedScene" uid="uid://cdc08in2vmbmw" path="res://Art/pon/matinaka2.glb" id="1_7r0q3"]
 
 [node name="matinaka2" unique_id=1727616478 instance=ExtResource("1_7r0q3")]
 

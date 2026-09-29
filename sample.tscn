@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs4ol6ndng3kt"]
 
-[ext_resource type="Shader" uid="uid://cndrrbat4i3yd" path="res://sky.gdshader" id="1_ghxyc"]
+[ext_resource type="Shader" uid="uid://cndrrbat4i3yd" path="res://shaders/sky.gdshader" id="1_ghxyc"]
 [ext_resource type="Texture2D" uid="uid://cy4wsdp7yxfhm" path="res://Art/SkyBox.png" id="2_j0wt1"]
 [ext_resource type="Texture2D" uid="uid://cly6m4q748kfw" path="res://Art/Route2/telephone_pole/3.png" id="4_cxftf"]
 [ext_resource type="Texture2D" uid="uid://h2b6lwhantar" path="res://Art/Route2/house/3_5.png" id="4_scuj5"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://3nexmstf7nca" path="res://Art/Route2/tree_1/5.png" id="11_vfioc"]
 [ext_resource type="Texture2D" uid="uid://df0jdaloohm80" path="res://Art/Route2/house/1_4.png" id="12_wtbqh"]
 [ext_resource type="Texture2D" uid="uid://bs2rmlhuokpg5" path="res://Art/Route2/NOM/NOMflp_0004.png" id="12_y6ugg"]
-[ext_resource type="Script" uid="uid://oaivnpnv7270" path="res://interactable.gd" id="13_0bnnm"]
+[ext_resource type="Script" uid="uid://oaivnpnv7270" path="res://script/interactable.gd" id="13_0bnnm"]
 [ext_resource type="Texture2D" uid="uid://umjx3kvmuicp" path="res://Art/Route2/grass/4.png" id="13_8lj4n"]
-[ext_resource type="Script" uid="uid://dt6c7l80jd20p" path="res://animated_sprite_3d.gd" id="13_j8dmm"]
+[ext_resource type="Script" uid="uid://dt6c7l80jd20p" path="res://script/animated_sprite_3d.gd" id="13_j8dmm"]
 [ext_resource type="Texture2D" uid="uid://b2d2n3675kdwh" path="res://Art/Route2/tree_1/6.png" id="13_y8dm7"]
-[ext_resource type="PackedScene" uid="uid://cbc1quu58l478" path="res://assets/pon/matinaka_2.tscn" id="15_ogfv4"]
+[ext_resource type="PackedScene" uid="uid://cbc1quu58l478" path="res://Art/pon/matinaka_2.tscn" id="15_ogfv4"]
 [ext_resource type="Texture2D" uid="uid://cm7rn2w0orq2d" path="res://Art/Route2/grass/2.png" id="15_wtbqh"]
 [ext_resource type="Texture2D" uid="uid://c622v1cby7iu6" path="res://Art/Route2/fence/3_L.png" id="16_ghxyc"]
 [ext_resource type="Texture2D" uid="uid://uiy5aw77ukip" path="res://Art/Route2/bamboo/1.png" id="17_f4nph"]
@@ -32,7 +32,20 @@
 [ext_resource type="Texture2D" uid="uid://ckm2x0t5nbs85" path="res://Art/Route2/robo/robo2.png" id="22_wtbqh"]
 [ext_resource type="Texture2D" uid="uid://ch2urxipa111r" path="res://Art/Route2/robo/robo.png" id="23_r80sc"]
 [ext_resource type="Texture2D" uid="uid://bqrui5llh8pv8" path="res://Art/Route2/grass/1.png" id="24_7qjai"]
+[ext_resource type="Texture2D" uid="uid://djgo0ys0lx7bx" path="res://Art/Route2/fence/3_mid.png" id="25_qotxs"]
 [ext_resource type="Texture2D" uid="uid://fkxfekw8l2a6" path="res://Art/corn.png" id="25_scuj5"]
+[ext_resource type="Shader" uid="uid://6xjto575e7c4" path="res://shaders/hologram_sprite3d.gdshader" id="26_7bdji"]
+[ext_resource type="Script" uid="uid://5rdmeqxwnk84" path="res://stop.gd" id="26_pm2xv"]
+[ext_resource type="Texture2D" uid="uid://b5ykh3phvisdc" path="res://Art/Route2/STOP/STOP_0001.png" id="26_xpiqs"]
+[ext_resource type="Texture2D" uid="uid://b7a1kxemol31w" path="res://Art/Route2/STOP/STOP_0002.png" id="27_7bdji"]
+[ext_resource type="Shader" uid="uid://cdshkrl82uq8p" path="res://shaders/hologram_animated_sprite_3d.gdshader" id="27_p8gee"]
+[ext_resource type="Texture2D" uid="uid://dky0ijhaq3cg" path="res://Art/Route2/STOP/STOP_0003.png" id="28_i33f5"]
+[ext_resource type="Texture2D" uid="uid://cbrtidmhtffx" path="res://Art/Route2/STOP/STOP_0004.png" id="29_p8gee"]
+[ext_resource type="Texture2D" uid="uid://ovp7eu7voqgp" path="res://Art/Route2/STOP/STOP_0005.png" id="30_qotxs"]
+[ext_resource type="Texture2D" uid="uid://cph6h218d71i" path="res://Art/Route2/STOP/STOP_0006.png" id="31_sughy"]
+[ext_resource type="Texture2D" uid="uid://dd53twnijotbo" path="res://Art/Route2/STOP/STOP_0007.png" id="32_dnjcl"]
+[ext_resource type="Texture2D" uid="uid://ceufdw4bhfug" path="res://Art/Route2/STOP/STOP_0008.png" id="33_dafih"]
+[ext_resource type="Script" uid="uid://bntktw0ftaowc" path="res://script/hologram_frame_sync.gd" id="35_7bdji"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4nph"]
 shader = ExtResource("1_ghxyc")
@@ -171,6 +184,28 @@ radius = 0.7548828
 height = 7.418091
 radius = 0.7548828
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p8gee"]
+render_priority = 0
+shader = ExtResource("26_7bdji")
+shader_parameter/sprite_texture = ExtResource("22_bk3rh")
+shader_parameter/billboard = false
+shader_parameter/holo_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/tint_strength = 0.05
+shader_parameter/opacity = 0.5
+shader_parameter/glow = 0.3
+shader_parameter/scanline_count = 120.0
+shader_parameter/scanline_speed = 1.5
+shader_parameter/scanline_strength = 0.25
+shader_parameter/sweep_speed = 0.4
+shader_parameter/sweep_width = 0.08
+shader_parameter/sweep_strength = 0.5
+shader_parameter/glitch_frequency = 0.12
+shader_parameter/glitch_rate = 12.0
+shader_parameter/glitch_offset = 0.03
+shader_parameter/glitch_slices = 24.0
+shader_parameter/chroma_offset = 0.004
+shader_parameter/flicker_strength = 0.08
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_60cek"]
 load_path = "res://.godot/imported/2.png-7554fd2921df9908616d075a896551ac.s3tc.ctex"
 
@@ -183,11 +218,132 @@ load_path = "res://.godot/imported/2.png-7554fd2921df9908616d075a896551ac.s3tc.c
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33exm"]
 load_path = "res://.godot/imported/1.png-b3b8860256ba96606020baec8d2b0a7d.s3tc.ctex"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sughy"]
+render_priority = 0
+shader = ExtResource("26_7bdji")
+shader_parameter/sprite_texture = ExtResource("25_qotxs")
+shader_parameter/billboard = false
+shader_parameter/holo_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/tint_strength = 0.05
+shader_parameter/opacity = 0.5
+shader_parameter/glow = 0.3
+shader_parameter/scanline_count = 120.0
+shader_parameter/scanline_speed = 1.5
+shader_parameter/scanline_strength = 0.25
+shader_parameter/sweep_speed = 0.4
+shader_parameter/sweep_width = 0.08
+shader_parameter/sweep_strength = 0.5
+shader_parameter/glitch_frequency = 0.12
+shader_parameter/glitch_rate = 12.0
+shader_parameter/glitch_offset = 0.03
+shader_parameter/glitch_slices = 24.0
+shader_parameter/chroma_offset = 0.004
+shader_parameter/flicker_strength = 0.08
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j0wt1"]
 load_path = "res://.godot/imported/3_mid.png-e29e930b228f0f33331041d73e4111e9.s3tc.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2e7l7"]
 load_path = "res://.godot/imported/3_mid.png-e29e930b228f0f33331041d73e4111e9.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnjcl"]
+render_priority = 0
+shader = ExtResource("26_7bdji")
+shader_parameter/sprite_texture = ExtResource("16_ghxyc")
+shader_parameter/billboard = false
+shader_parameter/holo_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/tint_strength = 0.05
+shader_parameter/opacity = 0.5
+shader_parameter/glow = 0.3
+shader_parameter/scanline_count = 120.0
+shader_parameter/scanline_speed = 1.5
+shader_parameter/scanline_strength = 0.25
+shader_parameter/sweep_speed = 0.4
+shader_parameter/sweep_width = 0.08
+shader_parameter/sweep_strength = 0.5
+shader_parameter/glitch_frequency = 0.12
+shader_parameter/glitch_rate = 12.0
+shader_parameter/glitch_offset = 0.03
+shader_parameter/glitch_slices = 24.0
+shader_parameter/chroma_offset = 0.004
+shader_parameter/flicker_strength = 0.08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qotxs"]
+render_priority = 0
+shader = ExtResource("26_7bdji")
+shader_parameter/sprite_texture = ExtResource("25_scuj5")
+shader_parameter/billboard = false
+shader_parameter/holo_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/tint_strength = 0.05
+shader_parameter/opacity = 0.5
+shader_parameter/glow = 0.3
+shader_parameter/scanline_count = 120.0
+shader_parameter/scanline_speed = 1.5
+shader_parameter/scanline_strength = 0.25
+shader_parameter/sweep_speed = 0.4
+shader_parameter/sweep_width = 0.08
+shader_parameter/sweep_strength = 0.5
+shader_parameter/glitch_frequency = 0.12
+shader_parameter/glitch_rate = 12.0
+shader_parameter/glitch_offset = 0.03
+shader_parameter/glitch_slices = 24.0
+shader_parameter/chroma_offset = 0.004
+shader_parameter/flicker_strength = 0.08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i33f5"]
+render_priority = 0
+shader = ExtResource("27_p8gee")
+shader_parameter/sprite_texture = ExtResource("28_i33f5")
+shader_parameter/frame_region = Vector4(0, 0, 1, 1)
+shader_parameter/billboard = false
+shader_parameter/holo_color = Color(0.3, 0.9, 1, 1)
+shader_parameter/tint_strength = 0.25
+shader_parameter/opacity = 0.85
+shader_parameter/glow = 0.3
+shader_parameter/scanline_count = 120.0
+shader_parameter/scanline_speed = 1.5
+shader_parameter/scanline_strength = 0.25
+shader_parameter/sweep_speed = 0.4
+shader_parameter/sweep_width = 0.08
+shader_parameter/sweep_strength = 0.5
+shader_parameter/glitch_frequency = 0.12
+shader_parameter/glitch_rate = 12.0
+shader_parameter/glitch_offset = 0.03
+shader_parameter/glitch_slices = 24.0
+shader_parameter/chroma_offset = 0.004
+shader_parameter/flicker_strength = 0.08
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3umr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_xpiqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_7bdji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i33f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_p8gee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qotxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sughy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_dnjcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dafih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bnnm"]
 animations = [{
@@ -213,7 +369,7 @@ animations = [{
 size = Vector3(1.0241833, 0.6907629, 1.021194)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr4jf"]
-size = Vector3(5.1747756, 1.3317871, 5.464616)
+size = Vector3(5.1747756, 1.3317871, 4.36298)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ghxyc"]
 animations = [{
@@ -233,7 +389,7 @@ animations = [{
 size = Vector3(7.466261, 6.3795424, 4.6375504)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4nph"]
-size = Vector3(26.24879, 3.9577637, 15.535661)
+size = Vector3(16.928682, 3.9577637, 8.841557)
 
 [node name="sample" type="Node3D" unique_id=1718166395]
 
@@ -566,6 +722,7 @@ texture = ExtResource("22_bk3rh")
 
 [node name="Grass2" type="Sprite3D" parent="." unique_id=615530579]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.8993957, 0.81998134, 12.701754)
+material_override = SubResource("ShaderMaterial_p8gee")
 billboard = 2
 shaded = true
 alpha_cut = 1
@@ -654,6 +811,7 @@ texture = ExtResource("16_ghxyc")
 
 [node name="Fence2" type="Sprite3D" parent="Fence" unique_id=516206181]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 5.0900307, 0, 0)
+material_override = SubResource("ShaderMaterial_sughy")
 shaded = true
 alpha_cut = 1
 texture = SubResource("CompressedTexture2D_j0wt1")
@@ -696,6 +854,7 @@ texture = ExtResource("18_f4nph")
 
 [node name="Fence3" type="Sprite3D" parent="." unique_id=18026528]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.7882993, 0.88627386, 20.442223)
+material_override = SubResource("ShaderMaterial_dnjcl")
 shaded = true
 alpha_cut = 1
 texture = ExtResource("16_ghxyc")
@@ -744,6 +903,7 @@ texture = ExtResource("18_f4nph")
 
 [node name="Corn" type="Sprite3D" parent="." unique_id=1602696907]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.7226355, 0.64624953, 16.92299)
+material_override = SubResource("ShaderMaterial_qotxs")
 billboard = 2
 shaded = true
 alpha_cut = 1
@@ -755,6 +915,19 @@ billboard = 2
 shaded = true
 alpha_cut = 1
 texture = ExtResource("25_scuj5")
+
+[node name="STOP" type="AnimatedSprite3D" parent="." unique_id=896756505]
+transform = Transform3D(0.2460494, 0, 0, 0, 0.2460494, 0, 0, 0, 1, 3.6183305, 1.1725116, -14.644822)
+layers = 5
+material_override = SubResource("ShaderMaterial_i33f5")
+sprite_frames = SubResource("SpriteFrames_y3umr")
+frame = 2
+frame_progress = 0.5189463
+script = ExtResource("26_pm2xv")
+
+[node name="Node" type="Node" parent="STOP" unique_id=1767634209 node_paths=PackedStringArray("target")]
+script = ExtResource("35_7bdji")
+target = NodePath("..")
 
 [node name="-----Interact-----" type="Node" parent="." unique_id=1563189808]
 
@@ -779,8 +952,9 @@ script = ExtResource("13_0bnnm")
 event_path = "res://event/event_01.json"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NOM/Area3D" unique_id=192045394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18251419, -0.08215332, 0.6218128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18251419, -0.08215332, 0.41804886)
 shape = SubResource("BoxShape3D_xr4jf")
+debug_color = Color(0.86980987, 0.35166913, 0, 0.41960785)
 
 [node name="ROBO" type="StaticBody3D" parent="." unique_id=1301100828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3392725, 0.14645535, -20.397964)
@@ -804,5 +978,6 @@ script = ExtResource("13_0bnnm")
 event_path = "res://event/event_02.json"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ROBO/Area3D" unique_id=1076137654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1853676, 1.230835, 3.1513805)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5506449, 1.230835, 4.364151)
 shape = SubResource("BoxShape3D_f4nph")
+debug_color = Color(0.8558669, 0.3674799, 0, 0.41960785)

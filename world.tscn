@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://ccaig4lg1bxg2"]
 
-[ext_resource type="Texture2D" uid="uid://bt8uone2gkgtk" path="res://Art/Route2/house/1_1.png" id="1_fj7yv"]
-[ext_resource type="Texture2D" uid="uid://df0jdaloohm80" path="res://Art/Route2/house/1_4.png" id="2_aqk2v"]
-[ext_resource type="Texture2D" uid="uid://d4dfwbsy3ikfl" path="res://Art/Route2/house/2_1.png" id="3_aqk2v"]
-[ext_resource type="Texture2D" uid="uid://h2b6lwhantar" path="res://Art/Route2/house/3_5.png" id="4_036b0"]
-[ext_resource type="Texture2D" uid="uid://dd6qnvn4w3vxv" path="res://Art/Route2/house/3_2.png" id="5_dwbse"]
+[ext_resource type="Script" uid="uid://oaivnpnv7270" path="res://script/interactable.gd" id="2_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://3jbe33a06mto" path="res://Art/Route2/telephone_pole/1.png" id="6_pkg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
@@ -33,12 +29,15 @@ dof_blur_amount = 0.09
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
-size = Vector3(7.554123, 5.767639, 1)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
 height = 10.2404785
 radius = 0.29638672
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f3sb7"]
+radius = 0.2509409
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
+size = Vector3(5.4074707, 1, 6.302307)
 
 [node name="World" type="Node3D" unique_id=1718166395]
 
@@ -58,71 +57,6 @@ collision_mask = 2
 mesh = SubResource("BoxMesh_fj7yv")
 material = SubResource("StandardMaterial3D_036b0")
 
-[node name="House1" type="StaticBody3D" parent="." unique_id=172113325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5467453)
-
-[node name="Sprite3D" type="Sprite3D" parent="House1" unique_id=925833836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("1_fj7yv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House1" unique_id=1853201238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14937592, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
-
-[node name="House2" type="StaticBody3D" parent="." unique_id=620833545]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.220509, 0, -4.7716923)
-
-[node name="Sprite3D" type="Sprite3D" parent="House2" unique_id=1020192433]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("2_aqk2v")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House2" unique_id=1268506790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41809082, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
-
-[node name="House3" type="StaticBody3D" parent="." unique_id=1940829965]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.100796, 0, -24.32306)
-
-[node name="Sprite3D" type="Sprite3D" parent="House3" unique_id=2105277109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("3_aqk2v")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House3" unique_id=216191810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3565216, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
-
-[node name="House4" type="StaticBody3D" parent="." unique_id=127603014]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.067696, 0, -11.406998)
-
-[node name="Sprite3D" type="Sprite3D" parent="House4" unique_id=1640675067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("4_036b0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House4" unique_id=1904248055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10241699, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
-
-[node name="House5" type="StaticBody3D" parent="." unique_id=1461357617]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.891129, 0, -12.9165745)
-
-[node name="Sprite3D" type="Sprite3D" parent="House5" unique_id=1854377005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.065141, 0)
-shaded = true
-alpha_cut = 1
-texture = ExtResource("5_dwbse")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="House5" unique_id=352039150]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41809082, 2.8820496, 0)
-shape = SubResource("BoxShape3D_fj7yv")
-
 [node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8619156, 9.859056, 8.055897)
 
@@ -135,3 +69,19 @@ texture = ExtResource("6_pkg7o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pole" unique_id=1805237533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
 shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="Cat" type="StaticBody3D" parent="." unique_id=149232943]
+
+[node name="Sprite3D" type="Sprite3D" parent="Cat" unique_id=435916469]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cat" unique_id=815603679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2806965, 0)
+shape = SubResource("SphereShape3D_f3sb7")
+
+[node name="Area3D" type="Area3D" parent="Cat" unique_id=1831767493]
+script = ExtResource("2_fj7yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cat/Area3D" unique_id=1228292155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07043457, 0.5255511, -0.27212524)
+shape = SubResource("BoxShape3D_f3sb7")
+debug_color = Color(0.81631094, 0.4069408, 0, 0.41960785)

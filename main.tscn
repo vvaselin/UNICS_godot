@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bb4r8yao2d6v8"]
 
 [ext_resource type="PackedScene" uid="uid://cs4ol6ndng3kt" path="res://sample.tscn" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://PlayerSwitch.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://script/PlayerSwitch.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="2_h2yge"]
-[ext_resource type="Script" uid="uid://bfbmd8d2rgad3" path="res://camera_occlude.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://bfbmd8d2rgad3" path="res://script/camera_occlude.gd" id="3_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://cmsrxp302x5j4" path="res://assets/audio/bgm/夏の終着駅.mp3" id="4_272bh"]
+[ext_resource type="Script" uid="uid://7enle283rkk5" path="res://bgm.gd" id="4_kek77"]
+[ext_resource type="AudioStream" uid="uid://n0xleor0ufgw" path="res://assets/audio/bgm/竹林.mp3" id="5_5vw27"]
+[ext_resource type="AudioStream" uid="uid://qmiqwij40vbf" path="res://assets/audio/bgm/セミ.mp3" id="5_kek77"]
 [ext_resource type="Script" uid="uid://cg8v4s17ke5br" path="res://ui/dialogue_ui.gd" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bd4cdbf7h56dw" path="res://assets/portraits/もなか/もなか_にっこり.png" id="6_272bh"]
 
@@ -79,6 +83,28 @@ lifetime = 4.0
 randomness = 0.5
 process_material = SubResource("ParticleProcessMaterial_7mycd")
 draw_pass_1 = SubResource("QuadMesh_5vw27")
+
+[node name="BGM" type="Node" parent="." unique_id=1903683572]
+script = ExtResource("4_kek77")
+bgm = ExtResource("4_272bh")
+
+[node name="環境音" type="Node" parent="." unique_id=1615846701]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="環境音" unique_id=2116148846]
+stream = ExtResource("5_kek77")
+volume_db = -10.0
+autoplay = true
+
+[node name="環境音_距離" type="Node3D" parent="." unique_id=612657097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4460483, 0)
+
+[node name="竹林" type="AudioStreamPlayer3D" parent="環境音_距離" unique_id=1744917607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4569786, 0, -13.79307)
+stream = ExtResource("5_5vw27")
+volume_db = -10.0
+unit_size = 7.0
+max_db = 1.0
+autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1860232106]
 

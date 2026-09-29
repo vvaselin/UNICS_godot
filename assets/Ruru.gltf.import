@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cipb3xyo0a16p"
-path="res://.godot/imported/Ruru.gltf-7f215b92ca21c8725062fab1f6a8233e.scn"
+path="res://.godot/imported/Ruru.gltf-68a7bf2a43576fdcf3d702a33b79434e.scn"
 
 [deps]
 
-source_file="res://Ruru.gltf"
-dest_files=["res://.godot/imported/Ruru.gltf-7f215b92ca21c8725062fab1f6a8233e.scn"]
+source_file="res://assets/Ruru.gltf"
+dest_files=["res://.godot/imported/Ruru.gltf-68a7bf2a43576fdcf3d702a33b79434e.scn"]
 
 [params]
 

@@ -10,8 +10,8 @@ extends Area3D
 ## 発火するイベントファイルのパス
 @export_file("*.json") var event_path: String = ""
 
-## プレイヤーのコリジョンレイヤー
-@export var player_layer: int = 2
+## プレイヤーのコリジョンレイヤー（インスペクターでチェックを付けて選ぶ）
+@export_flags_3d_physics var player_layer: int = 2
 
 ## [オプション] 範囲内にいることを示すヒント UI
 @export var hint_node: Control = null

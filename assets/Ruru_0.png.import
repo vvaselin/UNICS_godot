@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0l4qhw3f27ki"
-path.s3tc="res://.godot/imported/Ruru_0.png-c7f9c69d0a48040f1b8b8fa769b4ad64.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ruru_0.png-696d8586b90b1aa6938044bff3979bab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Ruru_0.png"
-dest_files=["res://.godot/imported/Ruru_0.png-c7f9c69d0a48040f1b8b8fa769b4ad64.s3tc.ctex"]
+source_file="res://assets/Ruru_0.png"
+dest_files=["res://.godot/imported/Ruru_0.png-696d8586b90b1aa6938044bff3979bab.s3tc.ctex"]
 
 [params]
 
