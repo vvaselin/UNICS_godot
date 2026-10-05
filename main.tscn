@@ -2,14 +2,94 @@
 
 [ext_resource type="PackedScene" uid="uid://cs4ol6ndng3kt" path="res://sample.tscn" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cpca8eftw1fl4" path="res://script/PlayerSwitch.gd" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://b5ykh3phvisdc" path="res://Art/Route2/STOP/STOP_0001.png" id="2_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://day0embh1t8c3" path="res://Art/Route2/NOM/NOMflp_0001.png" id="2_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://ckm2x0t5nbs85" path="res://Art/Route2/robo/robo2.png" id="2_dg77c"]
 [ext_resource type="PackedScene" uid="uid://fhug7x2ysuh8" path="res://Player.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b7a1kxemol31w" path="res://Art/Route2/STOP/STOP_0002.png" id="3_0odxb"]
 [ext_resource type="Script" uid="uid://bfbmd8d2rgad3" path="res://script/camera_occlude.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://d1vw0hp7hxiyk" path="res://Art/Route2/NOM/NOMflp_0002.png" id="3_yaehf"]
+[ext_resource type="Texture2D" uid="uid://ch2urxipa111r" path="res://Art/Route2/robo/robo.png" id="3_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://c6pentofmir04" path="res://Art/Route2/NOM/NOMflp_0003.png" id="4_074og"]
 [ext_resource type="AudioStream" uid="uid://cmsrxp302x5j4" path="res://assets/audio/bgm/夏の終着駅.mp3" id="4_272bh"]
 [ext_resource type="Script" uid="uid://7enle283rkk5" path="res://bgm.gd" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://dky0ijhaq3cg" path="res://Art/Route2/STOP/STOP_0003.png" id="4_lswn8"]
 [ext_resource type="AudioStream" uid="uid://n0xleor0ufgw" path="res://assets/audio/bgm/竹林.mp3" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cbrtidmhtffx" path="res://Art/Route2/STOP/STOP_0004.png" id="5_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://bs2rmlhuokpg5" path="res://Art/Route2/NOM/NOMflp_0004.png" id="5_cegan"]
 [ext_resource type="AudioStream" uid="uid://qmiqwij40vbf" path="res://assets/audio/bgm/セミ.mp3" id="5_kek77"]
 [ext_resource type="Script" uid="uid://cg8v4s17ke5br" path="res://ui/dialogue_ui.gd" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://bd4cdbf7h56dw" path="res://assets/portraits/もなか/もなか_にっこり.png" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://ovp7eu7voqgp" path="res://Art/Route2/STOP/STOP_0005.png" id="6_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://cph6h218d71i" path="res://Art/Route2/STOP/STOP_0006.png" id="7_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://dd53twnijotbo" path="res://Art/Route2/STOP/STOP_0007.png" id="8_kq58d"]
+[ext_resource type="Texture2D" uid="uid://ceufdw4bhfug" path="res://Art/Route2/STOP/STOP_0008.png" id="9_seu75"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u8w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1u8w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0odxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lswn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a6jrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xuqvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qsp4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kq58d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_seu75")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82xsv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2cqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yaehf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_074og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cegan")
+}],
+"loop": 1,
+"name": &"R",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq2sk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dg77c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ycdy4")
+}],
+"loop": 1,
+"name": &"R",
+"speed": 5.0
+}]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1bvp3"]
 dof_blur_far_enabled = true
@@ -59,8 +139,33 @@ size = Vector2(0.1, 0.1)
 [node name="floor" parent="sample" index="4" unique_id=160524289]
 operation = 2
 
+[node name="Bamboo" parent="sample" index="39" unique_id=1491053460]
+alpha_cut = 1
+
+[node name="Bamboo2" parent="sample" index="40" unique_id=1682088805]
+alpha_cut = 1
+
+[node name="Bamboo3" parent="sample" index="41" unique_id=932655717]
+alpha_cut = 1
+
+[node name="Bamboo4" parent="sample" index="42" unique_id=1027730519]
+alpha_cut = 1
+
+[node name="Bamboo5" parent="sample" index="43" unique_id=84674858]
+alpha_cut = 1
+
+[node name="STOP" parent="sample" index="50" unique_id=896756505]
+sprite_frames = SubResource("SpriteFrames_1u8w0")
+frame_progress = 0.0
+
+[node name="AnimatedSprite3D" parent="sample/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="0" unique_id=1845727770]
+sprite_frames = SubResource("SpriteFrames_82xsv")
+
 [node name="Area3D" parent="sample/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="2" unique_id=211988238 node_paths=PackedStringArray("hint_node")]
 hint_node = NodePath("../../../CanvasLayer/Hint")
+
+[node name="AnimatedSprite3D" parent="sample/ROBO" parent_id_path=PackedInt32Array(1718166395, 1301100828) index="0" unique_id=33478937]
+sprite_frames = SubResource("SpriteFrames_jq2sk")
 
 [node name="Area3D" parent="sample/ROBO" parent_id_path=PackedInt32Array(1718166395, 1301100828) index="2" unique_id=1103399645 node_paths=PackedStringArray("hint_node")]
 hint_node = NodePath("../../../CanvasLayer/Hint")
@@ -142,13 +247,15 @@ text = "もなか"
 vertical_alignment = 1
 
 [node name="TextLabel" type="Label" parent="CanvasLayer/DialogueUI/Box" unique_id=1384507924]
+custom_maximum_size = Vector2(663, -1)
 layout_mode = 0
 offset_left = 221.0
-offset_top = 38.0
+offset_top = 35.0
 offset_right = 884.0
-offset_bottom = 144.0
+offset_bottom = 149.0
 theme_override_font_sizes/font_size = 32
 text = "おはよう"
+autowrap_mode = 3
 
 [node name="Cursor" type="Label" parent="CanvasLayer/DialogueUI/Box" unique_id=781393795]
 layout_mode = 0

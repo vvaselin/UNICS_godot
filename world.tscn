@@ -29,6 +29,18 @@ dof_blur_amount = 0.09
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
+size = Vector3(1, 12.431763, 47.558746)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlwt5"]
+size = Vector3(1, 12.431763, 50.312653)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+size = Vector3(1, 12.431763, 62.572517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+size = Vector3(1, 12.431763, 61.81031)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pkg7o"]
 height = 10.2404785
 radius = 0.29638672
@@ -41,6 +53,8 @@ size = Vector3(5.4074707, 1, 6.302307)
 
 [node name="World" type="Node3D" unique_id=1718166395]
 
+[node name="-----Environment-----" type="Node" parent="." unique_id=2114569128]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575047551]
 environment = SubResource("Environment_tlwt5")
 camera_attributes = SubResource("CameraAttributesPractical_pkg7o")
@@ -50,12 +64,45 @@ transform = Transform3D(0.43863437, 0.5693237, -0.6953204, 0.14686717, 0.7179087
 light_color = Color(0.79607844, 1, 1, 1)
 shadow_enabled = true
 
+[node name="-----Map-----" type="Node" parent="." unique_id=776270551]
+
 [node name="floor" type="CSGMesh3D" parent="." unique_id=160524289]
 transform = Transform3D(100.09448, 0, 0, 0, 0.047322877, 0, 0, 0, 77.39491, 0, 0, 0)
 use_collision = true
 collision_mask = 2
 mesh = SubResource("BoxMesh_fj7yv")
 material = SubResource("StandardMaterial3D_036b0")
+
+[node name="見えない壁" type="Node3D" parent="." unique_id=945544432]
+transform = Transform3D(1, -2.9802322e-08, 1.4901161e-08, -2.9802322e-08, 1, 2.9802322e-08, -1.4901161e-08, 1.4901161e-08, 0.99999994, 1.9073486e-06, -1.9073486e-06, 0)
+
+[node name="Wall_E" type="StaticBody3D" parent="見えない壁" unique_id=717129891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.00462, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_E" unique_id=656210158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, 4.4622955)
+shape = SubResource("BoxShape3D_fj7yv")
+
+[node name="Wall_W" type="StaticBody3D" parent="見えない壁" unique_id=735063862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.189877, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_W" unique_id=271224904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, 3.1180573)
+shape = SubResource("BoxShape3D_tlwt5")
+
+[node name="Wall_N" type="StaticBody3D" parent="見えない壁" unique_id=1929321801]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.071274, 0, -18.21626)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_N" unique_id=833278313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -5.0950203)
+shape = SubResource("BoxShape3D_aqk2v")
+
+[node name="Wall_S" type="StaticBody3D" parent="見えない壁" unique_id=1370708718]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.071274, 0, 26.5652)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="見えない壁/Wall_S" unique_id=151280978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7158813, -5.876026)
+shape = SubResource("BoxShape3D_036b0")
 
 [node name="Pole" type="StaticBody3D" parent="." unique_id=780100270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8619156, 9.859056, 8.055897)
@@ -69,6 +116,8 @@ texture = ExtResource("6_pkg7o")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pole" unique_id=1805237533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000875473, -4.9178467, 0)
 shape = SubResource("CylinderShape3D_pkg7o")
+
+[node name="-----Object-----" type="Node" parent="." unique_id=674820134]
 
 [node name="Cat" type="StaticBody3D" parent="." unique_id=149232943]
 

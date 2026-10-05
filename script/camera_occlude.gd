@@ -14,12 +14,19 @@ extends Camera3D
 ## フェードにかかる時間（秒）
 @export var fade_duration: float = 0.1
 
+## スプライトのこの値より透明な部分に隠れても、遮蔽とみなさない
+@export_range(0.0, 1.0) var sprite_alpha_threshold: float = 0.5
+
 var _dither_shader: Shader = preload("res://shaders/dither_fade.gdshader")
 
 # 現在遮蔽中のオブジェクト管理
 # key: collider Node3D
 # value: { "targets": Array[GeometryInstance3D], "materials": Array[ShaderMaterial], "original_materials": Array[Material], "tween": Tween }
 var _occluded: Dictionary = {}
+
+# 透明度の判定用に、テクスチャの画像データを1回だけ読み込んで保持する
+# key: Texture2D, value: Image
+var _image_cache: Dictionary = {}
 
 
 func _ready() -> void:
@@ -48,7 +55,10 @@ func _physics_process(_delta: float) -> void:
 		if result.is_empty():
 			break
 		var collider: Node3D = result["collider"]
-		if _can_occlude(collider):
+		# スプライトの家などは、コリジョン形状が絵より大きい（奥行きがある）ことが多く、
+		# 絵に被る前からレイが当たってしまう。そのため見た目での判定
+		# (_add_sprite_visual_occluders) だけに任せ、ここでは CSG だけを扱う
+		if collider is CSGShape3D:
 			current_occluders.append(collider)
 		# collider.get_rid() は CSGShape3D で使えないので
 		# レイキャスト結果のボディ RID を直接使う
@@ -69,17 +79,6 @@ func _physics_process(_delta: float) -> void:
 		if obj not in _occluded:
 			_setup_occluder(obj)
 		_fade_to(obj, occlude_fade)
-
-
-## このコライダーをディザ対象にできるか判定
-func _can_occlude(node: Node) -> bool:
-	# CSGShape3D（CSGBox3D, CSGMesh3D 等）
-	if node is CSGShape3D:
-		return true
-	# StaticBody3D で子に Sprite3D があるもの
-	if node is StaticBody3D:
-		return not _find_sprites(node).is_empty()
-	return false
 
 
 ## ノードの子から Sprite3D をすべて探す
@@ -132,24 +131,55 @@ func _sprite_intersects_segment(sprite: Sprite3D, from: Vector3, to: Vector3) ->
 
 	var hit := from + direction * distance
 	var local_hit := sprite.to_local(hit)
-	var size := sprite.texture.get_size() * sprite.pixel_size
+
+	# 表示しているフレームの範囲（テクスチャ上のピクセル）
+	var frame_rect := _get_sprite_frame_rect(sprite)
+	var sprite_size := frame_rect.size * sprite.pixel_size
 	var offset := sprite.offset * sprite.pixel_size
-	var min_point: Vector2
-	var max_point: Vector2
 
+	var min_point: Vector2 = offset
 	if sprite.centered:
-		min_point = -size * 0.5 + offset
-		max_point = size * 0.5 + offset
-	else:
-		min_point = offset
-		max_point = size + offset
+		min_point = -sprite_size * 0.5 + offset
 
-	return (
-		local_hit.x >= min_point.x
-		and local_hit.x <= max_point.x
-		and local_hit.y >= min_point.y
-		and local_hit.y <= max_point.y
-	)
+	# 絵の四角形の中での位置 (0〜1)。3D の y は上向き、画像の y は下向きなので反転する
+	var u := (local_hit.x - min_point.x) / sprite_size.x
+	var v := 1.0 - (local_hit.y - min_point.y) / sprite_size.y
+	if u < 0.0 or u > 1.0 or v < 0.0 or v > 1.0:
+		return false
+	if sprite.flip_h:
+		u = 1.0 - u
+	if sprite.flip_v:
+		v = 1.0 - v
+
+	# 四角形の中でも、透明な部分なら遮蔽していない
+	return _get_alpha(sprite.texture, frame_rect, Vector2(u, v)) >= sprite_alpha_threshold
+
+
+## Sprite3D が今表示している範囲（region / hframes / vframes を考慮）
+func _get_sprite_frame_rect(sprite: Sprite3D) -> Rect2:
+	var rect := Rect2(Vector2.ZERO, sprite.texture.get_size())
+	if sprite.region_enabled:
+		rect = sprite.region_rect
+	var frame_size := rect.size / Vector2(sprite.hframes, sprite.vframes)
+	var coords := Vector2(sprite.frame_coords)
+	return Rect2(rect.position + coords * frame_size, frame_size)
+
+
+## テクスチャの指定位置の透明度。画像が読めない場合は不透明として扱う
+func _get_alpha(texture: Texture2D, frame_rect: Rect2, uv: Vector2) -> float:
+	var image: Image = _image_cache.get(texture)
+	if image == null:
+		image = texture.get_image()
+		if image == null:
+			return 1.0
+		if image.is_compressed():
+			image.decompress()
+		_image_cache[texture] = image
+
+	var pixel := frame_rect.position + uv * frame_rect.size
+	var x := clampi(int(pixel.x), 0, image.get_width() - 1)
+	var y := clampi(int(pixel.y), 0, image.get_height() - 1)
+	return image.get_pixel(x, y).a
 
 
 ## 初めて遮蔽されたオブジェクトにシェーダーマテリアルを適用
@@ -231,10 +261,10 @@ func _fade_to(obj: Node3D, target: float) -> void:
 		return
 
 	var mat: ShaderMaterial = materials[0]
-	var current: float = mat.get_shader_parameter("fade")
+	var current_fade: float = mat.get_shader_parameter("fade")
 
 	# 既に目標値ならスキップ
-	if is_equal_approx(current, target):
+	if is_equal_approx(current_fade, target):
 		return
 
 	# 既存の Tween をキャンセル
@@ -244,7 +274,7 @@ func _fade_to(obj: Node3D, target: float) -> void:
 	var tw := create_tween()
 	tw.tween_method(
 		_set_materials_fade.bind(materials),
-		current, target, fade_duration
+		current_fade, target, fade_duration
 	)
 
 	# 完全に不透明に戻ったら後片付け
