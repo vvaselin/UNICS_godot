@@ -156,6 +156,7 @@ alpha_cut = 1
 
 [node name="STOP" parent="sample" index="50" unique_id=896756505]
 sprite_frames = SubResource("SpriteFrames_1u8w0")
+frame = 0
 frame_progress = 0.0
 
 [node name="AnimatedSprite3D" parent="sample/NOM" parent_id_path=PackedInt32Array(1718166395, 1383875514) index="0" unique_id=1845727770]
